@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://oneusop.github.io/sanguo-xiangqi/sitemap.xml

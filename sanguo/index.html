@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>三国象棋 · Sanguo Xiangqi — 六阵营中国象棋，五档离线 AI</title>
+<meta name="description" content="三国象棋把中国象棋放进三国乱世：六方阵营、十八位武将、五档离线 AI，无需联网，一局定天下。">
+<meta name="keywords" content="三国象棋,中国象棋,象棋,三国,离线象棋,AI 象棋,Sanguo Xiangqi,Chinese chess,Xiangqi">
+<meta name="author" content="oneusop">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0a1110">
+<meta name="application-name" content="Sanguo Xiangqi">
+<link rel="canonical" href="https://oneusop.github.io/sanguo-xiangqi/">
+<link rel="alternate" hreflang="zh-Hans" href="https://oneusop.github.io/sanguo-xiangqi/">
+<link rel="alternate" hreflang="en" href="https://oneusop.github.io/sanguo-xiangqi/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://oneusop.github.io/sanguo-xiangqi/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="三国象棋 Sanguo Xiangqi">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://oneusop.github.io/sanguo-xiangqi/">
+<meta property="og:title" content="三国象棋 · Sanguo Xiangqi">
+<meta property="og:description" content="六方阵营、十八位武将、五档离线 AI。选一方旗号，一局定天下。">
+<meta property="og:image" content="https://oneusop.github.io/sanguo-xiangqi/assets/sanguo/feature-graphic.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="三国象棋 · Sanguo Xiangqi">
+<meta name="twitter:description" content="Six factions, eighteen heroes, five offline AI levels. Classic Chinese chess in the Three Kingdoms era.">
+<meta name="twitter:image" content="https://oneusop.github.io/sanguo-xiangqi/assets/sanguo/feature-graphic.png">
+
+<link rel="icon" type="image/png" href="assets/sanguo/app-icon.png">
+<link rel="apple-touch-icon" href="assets/sanguo/app-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>
+  (function () {
+    var root = document.documentElement;
+    root.classList.add('js');
+    var saved = null;
+    try { saved = localStorage.getItem('sanguo_lang'); } catch (e) {}
+    var lang = saved === 'en' || saved === 'zh' ? saved : null;
+    var q = null;
+    try { q = new URLSearchParams(location.search).get('lang'); } catch (e) {}
+    if (q === 'en' || q === 'zh') lang = q;
+    if (!lang) {
+      var nav = (navigator.language || 'zh').toLowerCase();
+      lang = nav.indexOf('en') === 0 ? 'en' : 'zh';
+    }
+    root.setAttribute('lang', lang === 'en' ? 'en' : 'zh-Hans');
+  })();
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main" data-i18n="skip">跳到主要内容</a>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="Sanguo Xiangqi">
+      <img class="brand-icon" src="assets/sanguo/app-icon.png" alt="三国象棋图标" width="40" height="40">
+      <span class="brand-text">
+        <strong data-i18n="brand">三国象棋</strong>
+        <small data-i18n="brandSub">SANGUO XIANGQI</small>
+      </span>
+    </a>
+    <nav class="nav" id="nav" aria-label="主导航">
+      <a href="#features" data-i18n="navFeatures">玩法特性</a>
+      <a href="#factions" data-i18n="navFactions">六方阵营</a>
+      <a href="#heroes" data-i18n="navHeroes">武将图鉴</a>
+      <a href="#shots" data-i18n="navShots">界面</a>
+      <a href="#download" data-i18n="navDownload">获取游戏</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang" role="group" aria-label="Language / 语言">
+        <button type="button" data-set-lang="zh" class="is-on">中</button>
+        <button type="button" data-set-lang="en">EN</button>
+      </div>
+      <a class="btn btn-gold btn-sm" href="https://play.google.com/store/apps/details?id=com.oneusop.sanguo" target="_blank" rel="noopener" data-i18n="getApp">获取游戏</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav" aria-label="打开菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <!-- ============================== HERO ============================== -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <span class="grid"></span>
+      <span class="glow g1"></span>
+      <span class="glow g2"></span>
+      <span class="glyph">帥</span>
+    </div>
+
+    <div class="wrap">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="seal">三</span><span data-i18n="heroEyebrow">三国群雄 · 一局定天下</span></p>
+          <h1 class="hero-title">
+            <span data-i18n="heroTitle">三国象棋</span>
+            <em data-i18n="heroTitleSub">SANGUO XIANGQI</em>
+          </h1>
+          <p class="hero-lead" data-i18n="heroLead">同样是车马炮，棋子却叫刘备、曹操、关羽、赤兔。选一方旗号，执红或执黑，一局之内见分晓。</p>
+          <ul class="hero-tags">
+            <li data-i18n="tagAi">五档离线 AI</li>
+            <li data-i18n="tagFactions">六方阵营</li>
+            <li data-i18n="tagOffline">不耗流量</li>
+            <li data-i18n="tagNoIap">无内购</li>
+          </ul>
+          <div class="hero-cta">
+            <a class="btn btn-gold play-btn" href="https://play.google.com/store/apps/details?id=com.oneusop.sanguo" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.6v18.8c0 .5.5.8.9.5l14.6-9.4c.4-.3.4-.8 0-1L4.9 2.1c-.4-.3-.9 0-.9.5Z" fill="currentColor"/></svg>
+              <span data-i18n="playCta">在 Google Play 获取</span>
+            </a>
+            <a class="btn btn-ghost" href="#features" data-i18n="learnMore">先看看怎么玩</a>
+          </div>
+          <p class="hero-meta" data-i18n="heroMeta">Android 7.0 及以上 · 免费下载 · 简体 / 繁体 / English / 日本語</p>
+        </div>
+
+        <div class="hero-art" aria-hidden="false">
+          <figure class="hero-card hc-left">
+            <img src="assets/sanguo/cards/guanyu.jpg" alt="关羽立绘" loading="eager">
+            <figcaption>关羽<small data-i18n="heroCardGuanyu">蜀汉 · 名将</small></figcaption>
+          </figure>
+          <figure class="phone">
+            <img data-shot="home" src="assets/sanguo/shots/home.png" alt="三国象棋首页：选择阵营与难度" width="1080" height="2330">
+          </figure>
+          <figure class="hero-card hc-right">
+            <img src="assets/sanguo/cards/zhugeliang.jpg" alt="诸葛亮立绘" loading="eager">
+            <figcaption>诸葛亮<small data-i18n="heroCardZhuge">蜀汉 · 军师</small></figcaption>
+          </figure>
+          <div class="hero-chip">
+            <span class="chip-seal">将</span>
+            <span>
+              <b data-i18n="chipTitle">十九路棋盘</b>
+              <span data-i18n="chipSub">竖屏 / 横屏都顺手</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat"><b>6</b><span data-i18n="statFactions">方阵营</span></div>
+        <div class="stat"><b>18</b><span data-i18n="statHeroes">位武将</span></div>
+        <div class="stat"><b>5</b><span data-i18n="statAi">档离线 AI</span></div>
+        <div class="stat"><b>4</b><span data-i18n="statLangs">种界面语言</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FEATURES ============================ -->
+  <section class="section" id="features">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="kicker" data-i18n="featuresKicker">玩法与特性</p>
+        <h2 data-i18n="featuresTitle">熟悉的棋盘，陌生的战场</h2>
+        <p class="section-lead" data-i18n="featuresLead">规则仍是那套中国象棋：马走日、象走田、炮翻山。变的是旗号、棋子，与坐在对面的那位军师。</p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature reveal" data-delay="0">
+          <span class="ico"><svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2.5"/><path d="M9 2.5v3M15 2.5v3M9 18.5v3M15 18.5v3M2.5 9h3M2.5 15h3M18.5 9h3M18.5 15h3"/></svg></span>
+          <h3 data-i18n="fAiTitle">五档 AI，从入门到大师</h3>
+          <p data-i18n="fAiDesc">入门、初级、中级、高级、大师，搜索深度与预算逐级提升。全部在手机本地运算，飞行模式也能开局。</p>
+        </article>
+        <article class="feature reveal" data-delay="1">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5Z"/><path d="M4 5.5v15"/><path d="M8 7h8M8 11h6"/></svg></span>
+          <h3 data-i18n="fRulesTitle">完整中国象棋规则</h3>
+          <p data-i18n="fRulesDesc">蹩马腿、塞象眼、炮翻山、兵过河、将帅照面与九宫限制；将军提醒、困毙、长将、三次重复与无进展判和。</p>
+        </article>
+        <article class="feature reveal" data-delay="2">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M6 21V3"/><path d="M6 4h11l-2.5 4L17 12H6"/></svg></span>
+          <h3 data-i18n="fFactionsTitle">六方阵营，各有旗号</h3>
+          <p data-i18n="fFactionsDesc">蜀汉、曹魏、东吴、群雄、西凉、黄巾。主公、谋士、军师、名马与战将，全部有名字。</p>
+        </article>
+        <article class="feature reveal" data-delay="3">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M9 21h6"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.7.5 1.1 1.3 1.1 2.2h5c0-.9.4-1.7 1.1-2.2A6 6 0 0 0 12 3Z"/></svg></span>
+          <h3 data-i18n="fHintTitle">悔棋与军师提示</h3>
+          <p data-i18n="fHintDesc">每局三次免费悔棋；军师推演为你推荐下一步，需要时再看一段激励视频。</p>
+        </article>
+        <article class="feature reveal" data-delay="0">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M6 3h12v18H6z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span>
+          <h3 data-i18n="fLogTitle">全程中文棋谱</h3>
+          <p data-i18n="fLogDesc">每一步都记成「炮八平七」这样的棋谱，随时回看，复局推演。</p>
+        </article>
+        <article class="feature reveal" data-delay="1">
+          <span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+          <h3 data-i18n="fLayoutTitle">竖屏横屏都顺手</h3>
+          <p data-i18n="fLayoutDesc">单手竖屏、双手横屏都能下；平板与笔记本同样做了布局适配。</p>
+        </article>
+        <article class="feature reveal" data-delay="2">
+          <span class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M9 10h6M9 14h6"/></svg></span>
+          <h3 data-i18n="fPiecesTitle">两套棋子外观</h3>
+          <p data-i18n="fPiecesDesc">书法字棋子与阵营徽记，红黑双方以文字与边框区分，同阵营也能一眼分明。</p>
+        </article>
+        <article class="feature reveal" data-delay="3">
+          <span class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18Z"/></svg></span>
+          <h3 data-i18n="fLangTitle">四语界面</h3>
+          <p data-i18n="fLangDesc">简体中文、繁體中文、English、日本語，默认跟随系统语言切换。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FACTIONS ============================ -->
+  <section class="section factions" id="factions">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <p class="kicker" data-i18n="factionsKicker">六方阵营</p>
+        <h2 data-i18n="factionsTitle">六面旗号，一副棋盘</h2>
+        <p class="section-lead" data-i18n="factionsLead">双方可以选择同一阵营：红黑文字与边框区分敌我，走法规则完全一致。</p>
+      </div>
+
+      <div class="faction-grid">
+        <article class="faction-card reveal" style="--fc:#B43E30" data-delay="0">
+          <div class="f-top">
+            <span class="f-seal">蜀</span>
+            <div>
+              <h3 data-i18n="f0Name">蜀汉</h3>
+              <p class="f-leader"><span data-i18n="lord">主公</span> · <b data-i18n="f0Leader">刘备</b></p>
+            </div>
+          </div>
+          <p class="f-motto" data-i18n="f0Motto">仁义为旗，匡扶汉室</p>
+          <dl class="f-roster">
+            <div><dt data-i18n="rosterAdvisor">谋士</dt><dd data-i18n="f0Advisors">庞统 · 法正</dd></div>
+            <div><dt data-i18n="rosterStrategist">军师</dt><dd data-i18n="f0Strategists">诸葛亮 · 徐庶</dd></div>
+            <div><dt data-i18n="rosterSteed">名马</dt><dd data-i18n="f0Steeds">赤兔 · 的卢</dd></div>
+            <div><dt data-i18n="rosterGeneral">战将</dt><dd data-i18n="f0Generals">赵云 · 马超</dd></div>
+          </dl>
+        </article>
+
+        <article class="faction-card reveal" style="--fc:#6190A7" data-delay="1">
+          <div class="f-top">
+            <span class="f-seal">魏</span>
+            <div>
+              <h3 data-i18n="f1Name">曹魏</h3>
+              <p class="f-leader"><span data-i18n="lord">主公</span> · <b data-i18n="f1Leader">曹操</b></p>
+            </div>
+          </div>
+          <p class="f-motto" data-i18n="f1Motto">雄才大略，逐鹿中原</p>
+          <dl class="f-roster">
+            <div><dt data-i18n="rosterAdvisor">谋士</dt><dd data-i18n="f1Advisors">荀彧 · 荀攸</dd></div>
+            <div><dt data-i18n="rosterStrategist">军师</dt><dd data-i18n="f1Strategists">司马懿 · 贾诩</dd></div>
+            <div><dt data-i18n="rosterSteed">名马</dt><dd data-i18n="f1Steeds">绝影 · 飞电</dd></div>
+            <div><dt data-i18n="rosterGeneral">战将</dt><dd data-i18n="f1Generals">张辽 · 徐晃</dd></div>
+          </dl>
+        </article>
+
+        <article class="faction-card reveal" style="--fc:#549980" data-delay="2">
+          <div class="f-top">
+            <span class="f-seal">吴</span>
+            <div>
+              <h3 data-i18n="f2Name">东吴</h3>
+              <p class="f-leader"><span data-i18n="lord">主公</span> · <b data-i18n="f2Leader">孙权</b></p>
+            </div>
+          </div>
+          <p class="f-motto" data-i18n="f2Motto">江东豪杰，虎踞龙盘</p>
+          <dl class="f-roster">
+            <div><dt data-i18n="rosterAdvisor">谋士</dt><dd data-i18n="f2Advisors">鲁肃 · 张昭</dd></div>
+            <div><dt data-i18n="rosterStrategist">军师</dt><dd data-i18n="f2Strategists">周瑜 · 陆逊</dd></div>
+            <div><dt data-i18n="rosterSteed">名马</dt><dd data-i18n="f2Steeds">惊帆 · 玉龙</dd></div>
+            <div><dt data-i18n="rosterGeneral">战将</dt><dd data-i18n="f2Generals">甘宁 · 凌统</dd></div>
+          </dl>
+        </article>
+
+        <article class="faction-card reveal" style="--fc:#B28EC0" data-delay="0">
+          <div class="f-top">
+            <span class="f-seal">群</span>
+            <div>
+              <h3 data-i18n="f3Name">群雄</h3>
+              <p class="f-leader"><span data-i18n="lord">主公</span> · <b data-i18n="f3Leader">袁绍</b></p>
+            </div>
+          </div>
+          <p class="f-motto" data-i18n="f3Motto">诸侯并起，逐鹿天下</p>
+          <dl class="f-roster">
+            <div><dt data-i18n="rosterAdvisor">谋士</dt><dd data-i18n="f3Advisors">田丰 · 沮授</dd></div>
+            <div><dt data-i18n="rosterStrategist">军师</dt><dd data-i18n="f3Strategists">许攸 · 审配</dd></div>
+            <div><dt data-i18n="rosterSteed">名马</dt><dd data-i18n="f3Steeds">白义 · 踏雪</dd></div>
+            <div><dt data-i18n="rosterGeneral">战将</dt><dd data-i18n="f3Generals">公孙瓒 · 袁术</dd></div>
+          </dl>
+        </article>
+
+        <article class="faction-card reveal" style="--fc:#C27B5D" data-delay="1">
+          <div class="f-top">
+            <span class="f-seal">凉</span>
+            <div>
+              <h3 data-i18n="f4Name">西凉</h3>
+              <p class="f-leader"><span data-i18n="lord">主公</span> · <b data-i18n="f4Leader">董卓</b></p>
+            </div>
+          </div>
+          <p class="f-motto" data-i18n="f4Motto">铁骑纵横，威震关陇</p>
+          <dl class="f-roster">
+            <div><dt data-i18n="rosterAdvisor">谋士</dt><dd data-i18n="f4Advisors">李儒 · 贾诩</dd></div>
+            <div><dt data-i18n="rosterStrategist">军师</dt><dd data-i18n="f4Strategists">蔡邕 · 王允</dd></div>
+            <div><dt data-i18n="rosterSteed">名马</dt><dd data-i18n="f4Steeds">赤兔 · 汗血</dd></div>
+            <div><dt data-i18n="rosterGeneral">战将</dt><dd data-i18n="f4Generals">吕布 · 张绣</dd></div>
+          </dl>
+        </article>
+
+        <article class="faction-card reveal" style="--fc:#D1B258" data-delay="2">
+          <div class="f-top">
+            <span class="f-seal">黄</span>
+            <div>
+              <h3 data-i18n="f5Name">黄巾</h3>
+              <p class="f-leader"><span data-i18n="lord">主公</span> · <b data-i18n="f5Leader">张角</b></p>
+            </div>
+          </div>
+          <p class="f-motto" data-i18n="f5Motto">苍天已死，黄天当立</p>
+          <dl class="f-roster">
+            <div><dt data-i18n="rosterAdvisor">谋士</dt><dd data-i18n="f5Advisors">张宝 · 张梁</dd></div>
+            <div><dt data-i18n="rosterStrategist">军师</dt><dd data-i18n="f5Strategists">波才 · 张曼成</dd></div>
+            <div><dt data-i18n="rosterSteed">名马</dt><dd data-i18n="f5Steeds">黄骠 · 追风</dd></div>
+            <div><dt data-i18n="rosterGeneral">战将</dt><dd data-i18n="f5Generals">张燕 · 张牛角</dd></div>
+          </dl>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= HEROES ============================= -->
+  <section class="section heroes" id="heroes">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <p class="kicker" data-i18n="heroesKicker">武将图鉴</p>
+        <h2 data-i18n="heroesTitle">十八位武将，各为其主</h2>
+        <p class="section-lead" data-i18n="heroesLead">图鉴中收藏十八幅人物立绘：主公、军师、谋士与猛将，阵营与身份一目了然。</p>
+      </div>
+    </div>
+
+    <div class="marquee-wrap">
+      <div class="marquee">
+        <div class="marquee-group">
+          <article class="hero-card-item" style="--fc:#B43E30"><span class="hc-tag">蜀</span><img src="assets/sanguo/cards/liubei.jpg" alt="刘备" loading="lazy"><div class="hc-info"><div class="hc-name"><span>刘备</span><span class="hc-role" data-i18n="roleLord">主公</span></div><span class="hc-en">LIU BEI</span></div></article>
+          <article class="hero-card-item" style="--fc:#6190A7"><span class="hc-tag">魏</span><img src="assets/sanguo/cards/caocao.jpg" alt="曹操" loading="lazy"><div class="hc-info"><div class="hc-name"><span>曹操</span><span class="hc-role" data-i18n="roleLord">主公</span></div><span class="hc-en">CAO CAO</span></div></article>
+          <article class="hero-card-item" style="--fc:#549980"><span class="hc-tag">吴</span><img src="assets/sanguo/cards/sunquan.jpg" alt="孙权" loading="lazy"><div class="hc-info"><div class="hc-name"><span>孙权</span><span class="hc-role" data-i18n="roleLord">主公</span></div><span class="hc-en">SUN QUAN</span></div></article>
+          <article class="hero-card-item" style="--fc:#B43E30"><span class="hc-tag">蜀</span><img src="assets/sanguo/cards/guanyu.jpg" alt="关羽" loading="lazy"><div class="hc-info"><div class="hc-name"><span>关羽</span><span class="hc-role" data-i18n="roleGeneral">名将</span></div><span class="hc-en">GUAN YU</span></div></article>
+          <article class="hero-card-item" style="--fc:#B43E30"><span class="hc-tag">蜀</span><img src="assets/sanguo/cards/zhugeliang.jpg" alt="诸葛亮" loading="lazy"><div class="hc-info"><div class="hc-name"><span>诸葛亮</span><span class="hc-role" data-i18n="roleStrategist">军师</span></div><span class="hc-en">ZHUGE LIANG</span></div></article>
+          <article class="hero-card-item" style="--fc:#6190A7"><span class="hc-tag">魏</span><img src="assets/sanguo/cards/simayi.jpg" alt="司马懿" loading="lazy"><div class="hc-info"><div class="hc-name"><span>司马懿</span><span class="hc-role" data-i18n="roleStrategist">军师</span></div><span class="hc-en">SIMA YI</span></div></article>
+          <article class="hero-card-item" style="--fc:#549980"><span class="hc-tag">吴</span><img src="assets/sanguo/cards/zhouyu.jpg" alt="周瑜" loading="lazy"><div class="hc-info"><div class="hc-name"><span>周瑜</span><span class="hc-role" data-i18n="roleStrategist">军师</span></div><span class="hc-en">ZHOU YU</span></div></article>
+          <article class="hero-card-item" style="--fc:#B28EC0"><span class="hc-tag">群</span><img src="assets/sanguo/cards/lvbu.jpg" alt="吕布" loading="lazy"><div class="hc-info"><div class="hc-name"><span>吕布</span><span class="hc-role" data-i18n="roleWarrior">猛将</span></div><span class="hc-en">LU BU</span></div></article>
+          <article class="hero-card-item" style="--fc:#B43E30"><span class="hc-tag">蜀</span><img src="assets/sanguo/cards/zhaoyun.jpg" alt="赵云" loading="lazy"><div class="hc-info"><div class="hc-name"><span>赵云</span><span class="hc-role" data-i18n="roleCommander">战将</span></div><span class="hc-en">ZHAO YUN</span></div></article>
+        </div>
+        <div class="marquee-group" aria-hidden="true">
+          <article class="hero-card-item" style="--fc:#B43E30"><span class="hc-tag">蜀</span><img src="assets/sanguo/cards/liubei.jpg" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span>刘备</span><span class="hc-role" data-i18n="roleLord">主公</span></div><span class="hc-en">LIU BEI</span></div></article>
+          <article class="hero-card-item" style="--fc:#6190A7"><span class="hc-tag">魏</span><img src="assets/sanguo/cards/caocao.jpg" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span>曹操</span><span class="hc-role" data-i18n="roleLord">主公</span></div><span class="hc-en">CAO CAO</span></div></article>
+          <article class="hero-card-item" style="--fc:#549980"><span class="hc-tag">吴</span><img src="assets/sanguo/cards/sunquan.jpg" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span>孙权</span><span class="hc-role" data-i18n="roleLord">主公</span></div><span class="hc-en">SUN QUAN</span></div></article>
+          <article class="hero-card-item" style="--fc:#B43E30"><span class="hc-tag">蜀</span><img src="assets/sanguo/cards/guanyu.jpg" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span>关羽</span><span class="hc-role" data-i18n="roleGeneral">名将</span></div><span class="hc-en">GUAN YU</span></div></article>
+          <article class="hero-card-item" style="--fc:#B43E30"><span class="hc-tag">蜀</span><img src="assets/sanguo/cards/zhugeliang.jpg" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span>诸葛亮</span><span class="hc-role" data-i18n="roleStrategist">军师</span></div><span class="hc-en">ZHUGE LIANG</span></div></article>
+          <article class="hero-card-item" style="--fc:#6190A7"><span class="hc-tag">魏</span><img src="assets/sanguo/cards/simayi.jpg" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span>司马懿</span><span class="hc-role" data-i18n="roleStrategist">军师</span></div><span class="hc-en">SIMA YI</span></div></article>
+          <article class="hero-card-item" style="--fc:#549980"><span class="hc-tag">吴</span><img src="assets/sanguo/cards/zhouyu.jpg" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span>周瑜</span><span class="hc-role" data-i18n="roleStrategist">军师</span></div><span class="hc-en">ZHOU YU</span></div></article>
+          <article class="hero-card-item" style="--fc:#B28EC0"><span class="hc-tag">群</span><img src="assets/sanguo/cards/lvbu.jpg" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span>吕布</span><span class="hc-role" data-i18n="roleWarrior">猛将</span></div><span class="hc-en">LU BU</span></div></article>
+          <article class="hero-card-item" style="--fc:#B43E30"><span class="hc-tag">蜀</span><img src="assets/sanguo/cards/zhaoyun.jpg" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span>赵云</span><span class="hc-role" data-i18n="roleCommander">战将</span></div><span class="hc-en">ZHAO YUN</span></div></article>
+        </div>
+      </div>
+    </div>
+
+    <div class="marquee-wrap">
+      <div class="marquee reverse">
+        <div class="marquee-group">
+          <article class="hero-card-item" style="--fc:#B43E30"><span class="hc-tag">蜀</span><img src="assets/sanguo/cards/zhangfei.jpg" alt="张飞" loading="lazy"><div class="hc-info"><div class="hc-name"><span>张飞</span><span class="hc-role" data-i18n="roleGeneral">名将</span></div><span class="hc-en">ZHANG FEI</span></div></article>
+          <article class="hero-card-item" style="--fc:#B43E30"><span class="hc-tag">蜀</span><img src="assets/sanguo/cards/machao.jpg" alt="马超" loading="lazy"><div class="hc-info"><div class="hc-name"><span>马超</span><span class="hc-role" data-i18n="roleCommander">战将</span></div><span class="hc-en">MA CHAO</span></div></article>
+          <article class="hero-card-item" style="--fc:#B43E30"><span class="hc-tag">蜀</span><img src="assets/sanguo/cards/huangzhong.jpg" alt="黄忠" loading="lazy"><div class="hc-info"><div class="hc-name"><span>黄忠</span><span class="hc-role" data-i18n="roleVeteran">老将</span></div><span class="hc-en">HUANG ZHONG</span></div></article>
+          <article class="hero-card-item" style="--fc:#B43E30"><span class="hc-tag">蜀</span><img src="assets/sanguo/cards/pangtong.jpg" alt="庞统" loading="lazy"><div class="hc-info"><div class="hc-name"><span>庞统</span><span class="hc-role" data-i18n="roleAdvisor">谋士</span></div><span class="hc-en">PANG TONG</span></div></article>
+          <article class="hero-card-item" style="--fc:#6190A7"><span class="hc-tag">魏</span><img src="assets/sanguo/cards/guojia.jpg" alt="郭嘉" loading="lazy"><div class="hc-info"><div class="hc-name"><span>郭嘉</span><span class="hc-role" data-i18n="roleAdvisor">谋士</span></div><span class="hc-en">GUO JIA</span></div></article>
+          <article class="hero-card-item" style="--fc:#6190A7"><span class="hc-tag">魏</span><img src="assets/sanguo/cards/xunyu.jpg" alt="荀彧" loading="lazy"><div class="hc-info"><div class="hc-name"><span>荀彧</span><span class="hc-role" data-i18n="roleAdvisor">谋士</span></div><span class="hc-en">XUN YU</span></div></article>
+          <article class="hero-card-item" style="--fc:#6190A7"><span class="hc-tag">魏</span><img src="assets/sanguo/cards/zhangliao.jpg" alt="张辽" loading="lazy"><div class="hc-info"><div class="hc-name"><span>张辽</span><span class="hc-role" data-i18n="roleCommander">战将</span></div><span class="hc-en">ZHANG LIAO</span></div></article>
+          <article class="hero-card-item" style="--fc:#549980"><span class="hc-tag">吴</span><img src="assets/sanguo/cards/lusu.jpg" alt="鲁肃" loading="lazy"><div class="hc-info"><div class="hc-name"><span>鲁肃</span><span class="hc-role" data-i18n="roleAdvisor">谋士</span></div><span class="hc-en">LU SU</span></div></article>
+          <article class="hero-card-item" style="--fc:#549980"><span class="hc-tag">吴</span><img src="assets/sanguo/cards/ganning.jpg" alt="甘宁" loading="lazy"><div class="hc-info"><div class="hc-name"><span>甘宁</span><span class="hc-role" data-i18n="roleCommander">战将</span></div><span class="hc-en">GAN NING</span></div></article>
+        </div>
+        <div class="marquee-group" aria-hidden="true">
+          <article class="hero-card-item" style="--fc:#B43E30"><span class="hc-tag">蜀</span><img src="assets/sanguo/cards/zhangfei.jpg" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span>张飞</span><span class="hc-role" data-i18n="roleGeneral">名将</span></div><span class="hc-en">ZHANG FEI</span></div></article>
+          <article class="hero-card-item" style="--fc:#B43E30"><span class="hc-tag">蜀</span><img src="assets/sanguo/cards/machao.jpg" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span>马超</span><span class="hc-role" data-i18n="roleCommander">战将</span></div><span class="hc-en">MA CHAO</span></div></article>
+          <article class="hero-card-item" style="--fc:#B43E30"><span class="hc-tag">蜀</span><img src="assets/sanguo/cards/huangzhong.jpg" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span>黄忠</span><span class="hc-role" data-i18n="roleVeteran">老将</span></div><span class="hc-en">HUANG ZHONG</span></div></article>
+          <article class="hero-card-item" style="--fc:#B43E30"><span class="hc-tag">蜀</span><img src="assets/sanguo/cards/pangtong.jpg" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span>庞统</span><span class="hc-role" data-i18n="roleAdvisor">谋士</span></div><span class="hc-en">PANG TONG</span></div></article>
+          <article class="hero-card-item" style="--fc:#6190A7"><span class="hc-tag">魏</span><img src="assets/sanguo/cards/guojia.jpg" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span>郭嘉</span><span class="hc-role" data-i18n="roleAdvisor">谋士</span></div><span class="hc-en">GUO JIA</span></div></article>
+          <article class="hero-card-item" style="--fc:#6190A7"><span class="hc-tag">魏</span><img src="assets/sanguo/cards/xunyu.jpg" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span>荀彧</span><span class="hc-role" data-i18n="roleAdvisor">谋士</span></div><span class="hc-en">XUN YU</span></div></article>
+          <article class="hero-card-item" style="--fc:#6190A7"><span class="hc-tag">魏</span><img src="assets/sanguo/cards/zhangliao.jpg" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span>张辽</span><span class="hc-role" data-i18n="roleCommander">战将</span></div><span class="hc-en">ZHANG LIAO</span></div></article>
+          <article class="hero-card-item" style="--fc:#549980"><span class="hc-tag">吴</span><img src="assets/sanguo/cards/lusu.jpg" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span>鲁肃</span><span class="hc-role" data-i18n="roleAdvisor">谋士</span></div><span class="hc-en">LU SU</span></div></article>
+          <article class="hero-card-item" style="--fc:#549980"><span class="hc-tag">吴</span><img src="assets/sanguo/cards/ganning.jpg" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span>甘宁</span><span class="hc-role" data-i18n="roleCommander">战将</span></div><span class="hc-en">GAN NING</span></div></article>
+        </div>
+      </div>
+    </div>
+
+    <p class="heroes-note reveal" data-i18n="heroesNote">图鉴共 18 幅 · 每局可翻牌查看</p>
+  </section>
+
+  <!-- =========================== SCREENSHOTS =========================== -->
+  <section class="section shots" id="shots">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="kicker" data-i18n="shotsKicker">界面一览</p>
+        <h2 data-i18n="shotsTitle">宣纸棋盘，木纹边框</h2>
+        <p class="section-lead" data-i18n="shotsLead">上一步高亮、将军提醒、吃子记录与完整棋谱，都在一屏之内。</p>
+      </div>
+
+      <div class="shot-grid">
+        <figure class="shot reveal" data-delay="0">
+          <div class="shot-frame"><img data-shot="home" src="assets/sanguo/shots/home.png" alt="选择阵营与难度" loading="lazy"></div>
+          <figcaption><b data-i18n="shotHome">布阵点将</b><span data-i18n="shotHomeSub">选阵营、定难度、执红先行</span></figcaption>
+        </figure>
+        <figure class="shot reveal" data-delay="1">
+          <div class="shot-frame"><img data-shot="game" src="assets/sanguo/shots/game.png" alt="对局界面" loading="lazy"></div>
+          <figcaption><b data-i18n="shotGame">对局落子</b><span data-i18n="shotGameSub">军师建议与上一步高亮</span></figcaption>
+        </figure>
+        <figure class="shot reveal" data-delay="2">
+          <div class="shot-frame"><img data-shot="settings" src="assets/sanguo/shots/settings.png" alt="设置界面" loading="lazy"></div>
+          <figcaption><b data-i18n="shotSettings">偏好设置</b><span data-i18n="shotSettingsSub">语言、音效、触感与棋子外观</span></figcaption>
+        </figure>
+        <figure class="shot reveal" data-delay="3">
+          <div class="shot-frame"><img data-shot="rules" src="assets/sanguo/shots/rules.png" alt="规则说明" loading="lazy"></div>
+          <figcaption><b data-i18n="shotRules">规则说明</b><span data-i18n="shotRulesSub">走法、记谱与胜负裁定</span></figcaption>
+        </figure>
+      </div>
+
+      <figure class="laptop-shot reveal">
+        <div class="laptop-frame">
+          <img src="assets/sanguo/laptop/overview.png" alt="平板与横屏布局" loading="lazy">
+        </div>
+        <figcaption data-i18n="laptopCaption">横屏与平板布局，棋盘更大，落子更稳。</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- =============================== ADS ============================== -->
+  <section class="section" id="ads">
+    <div class="wrap">
+      <div class="ads-panel reveal">
+        <div class="ads-head">
+          <div>
+            <p class="kicker" data-i18n="adsKicker">广告与免广告</p>
+            <h2 data-i18n="adsTitle">免费对弈，也可安静下棋</h2>
+            <p data-i18n="adsLead">免费版包含 Google AdMob 的横幅、插屏与激励视频，没有任何付费内购。自愿看完激励视频，就能累积免广告时长。</p>
+          </div>
+          <span class="no-iap">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            <span data-i18n="noIap">无内购 · 无账号</span>
+          </span>
+        </div>
+
+        <div class="tier-grid">
+          <div class="tier">
+            <span class="tier-seal"><span class="tier-num">3</span><small data-i18n="tierViews">次观看</small></span>
+            <div>
+              <b data-i18n="tier1">免广告 1 天</b>
+              <span data-i18n="tier1Sub">累积观看 3 次激励视频</span>
+            </div>
+          </div>
+          <div class="tier">
+            <span class="tier-seal"><span class="tier-num">10</span><small data-i18n="tierViews">次观看</small></span>
+            <div>
+              <b data-i18n="tier2">免广告 1 周</b>
+              <span data-i18n="tier2Sub">累积观看 10 次激励视频</span>
+            </div>
+          </div>
+          <div class="tier">
+            <span class="tier-seal"><span class="tier-num">30</span><small data-i18n="tierViews">次观看</small></span>
+            <div>
+              <b data-i18n="tier3">免广告 1 个月</b>
+              <span data-i18n="tier3Sub">累积观看 30 次激励视频</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="ads-note" data-i18n="adsNote">免广告期间不展示横幅与插屏；观看记录只保存在本机，卸载即清除。对局 AI 完全离线，不消耗流量。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= DOWNLOAD ============================ -->
+  <section class="section download" id="download">
+    <div class="wrap">
+      <div class="download-panel reveal">
+        <div class="dl-copy">
+          <p class="kicker" data-i18n="dlKicker">免费下载</p>
+          <h2 data-i18n="dlTitle">坐下来，落一子。</h2>
+          <p data-i18n="dlLead">在 Google Play 免费获取《三国象棋》。Android 7.0 及以上，离线可玩，一局十分钟。</p>
+          <div class="dl-actions">
+            <a class="btn btn-gold play-btn" href="https://play.google.com/store/apps/details?id=com.oneusop.sanguo" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.6v18.8c0 .5.5.8.9.5l14.6-9.4c.4-.3.4-.8 0-1L4.9 2.1c-.4-.3-.9 0-.9.5Z" fill="currentColor"/></svg>
+              <span data-i18n="playCta">在 Google Play 获取</span>
+            </a>
+            <a class="btn btn-ghost" href="privacy.html" data-i18n="privacyLink">隐私政策</a>
+          </div>
+          <p class="dl-meta">
+            <span data-i18n="dlMeta">包名 com.oneusop.sanguo · 联系</span>
+            <a href="mailto:oneusop@163.com">oneusop@163.com</a>
+          </p>
+        </div>
+        <div class="dl-art">
+          <img src="assets/sanguo/app-icon.png" alt="三国象棋应用图标" width="168" height="168" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <img src="assets/sanguo/app-icon.png" alt="" width="38" height="38" loading="lazy">
+          <strong data-i18n="brand">三国象棋</strong>
+        </div>
+        <p class="footer-tagline" data-i18n="footerTagline">一方棋局，天下谋略。</p>
+      </div>
+      <nav class="footer-links" aria-label="页脚导航">
+        <a href="#features" data-i18n="navFeatures">玩法特性</a>
+        <a href="#factions" data-i18n="navFactions">六方阵营</a>
+        <a href="#heroes" data-i18n="navHeroes">武将图鉴</a>
+        <a href="#shots" data-i18n="navShots">界面</a>
+        <a href="privacy.html" data-i18n="privacyLink">隐私政策</a>
+        <a href="mailto:oneusop@163.com" data-i18n="contact">联系我们</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Sanguo Xiangqi · <span data-i18n="madeBy">由 oneusop 出品</span></span>
+      <span data-i18n="footerNote">非官方三国题材同人作品 · 棋规遵循中国象棋协会通行规则</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js" defer></script>
+</body>
+</html>
