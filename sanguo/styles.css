@@ -1639,6 +1639,7 @@ button {
 
 html[lang="zh-Hans"] [data-lang-block="zh"],
 html[lang="zh-CN"] [data-lang-block="zh"],
+html[lang="zh-Hant"] [data-lang-block="zh-Hant"],
 html[lang="en"] [data-lang-block="en"] {
   display: block;
 }

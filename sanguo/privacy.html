@@ -9,6 +9,7 @@
 <meta name="theme-color" content="#0a1110">
 <link rel="canonical" href="https://oneusop.github.io/sanguo-xiangqi/privacy.html">
 <link rel="alternate" hreflang="zh-Hans" href="https://oneusop.github.io/sanguo-xiangqi/privacy.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://oneusop.github.io/sanguo-xiangqi/privacy.html?lang=zh-Hant">
 <link rel="alternate" hreflang="en" href="https://oneusop.github.io/sanguo-xiangqi/privacy.html?lang=en">
 <link rel="alternate" hreflang="x-default" href="https://oneusop.github.io/sanguo-xiangqi/privacy.html">
 <link rel="icon" type="image/png" href="assets/sanguo/app-icon.png">
@@ -21,17 +22,28 @@
   (function () {
     var root = document.documentElement;
     root.classList.add('js');
+    function norm(code) {
+      if (!code) return null;
+      code = String(code).toLowerCase();
+      if (code === 'en') return 'en';
+      if (code === 'zh' || code === 'zh-hans' || code === 'zh-cn') return 'zh';
+      if (code === 'zh-hant' || code === 'zh-tw' || code === 'zh-hk' || code === 'zh-mo') return 'zh-Hant';
+      return null;
+    }
     var saved = null;
     try { saved = localStorage.getItem('sanguo_lang'); } catch (e) {}
-    var lang = saved === 'en' || saved === 'zh' ? saved : null;
+    var lang = norm(saved);
     var q = null;
     try { q = new URLSearchParams(location.search).get('lang'); } catch (e) {}
-    if (q === 'en' || q === 'zh') lang = q;
+    var qn = norm(q);
+    if (qn) lang = qn;
     if (!lang) {
       var nav = (navigator.language || 'zh').toLowerCase();
-      lang = nav.indexOf('en') === 0 ? 'en' : 'zh';
+      if (nav.indexOf('en') === 0) lang = 'en';
+      else if (/zh-(hant|tw|hk|mo)/.test(nav)) lang = 'zh-Hant';
+      else lang = 'zh';
     }
-    root.setAttribute('lang', lang === 'en' ? 'en' : 'zh-Hans');
+    root.setAttribute('lang', lang === 'en' ? 'en' : lang === 'zh-Hant' ? 'zh-Hant' : 'zh-Hans');
   })();
 </script>
 </head>
@@ -50,6 +62,7 @@
     <div class="header-actions" style="margin-left:auto">
       <div class="lang" role="group" aria-label="Language / 语言">
         <button type="button" data-set-lang="zh" class="is-on">中</button>
+        <button type="button" data-set-lang="zh-Hant">繁</button>
         <button type="button" data-set-lang="en">EN</button>
       </div>
       <a class="btn btn-ghost btn-sm" href="index.html" data-i18n="backHome">返回官网</a>
@@ -107,6 +120,47 @@
 
       <h2>九、联系我们</h2>
       <p>开发者联系邮箱：<a href="mailto:oneusop@163.com">oneusop@163.com</a></p>
+    </div>
+
+    <div class="policy" data-lang-block="zh-Hant">
+      <h2>一、總則</h2>
+      <p>本應用由個人開發者（下稱“我們”）發布。我們不設帳號體系，不要求登入，不收集你的通訊錄、簡訊、精確位置、照片或任何檔案。你在本應用中的設定、對局進度與偏好僅儲存在你的裝置本地。</p>
+
+      <h2>二、我們直接處理的資訊</h2>
+      <ul>
+        <li><b>本地設定</b>：語言、音效、觸感、棋子外觀、難度、是否已去廣告等，儲存在裝置本地儲存，解除安裝即刪除。</li>
+        <li><b>對局資料</b>：棋譜與局面只存在於執行記憶體中，不落盤、不上傳。</li>
+      </ul>
+      <p>以上資訊不會離開你的裝置，我們無法讀取。</p>
+
+      <h2>三、第三方 SDK 處理的資訊</h2>
+      <h3>Google AdMob（廣告）</h3>
+      <p>免費版展示橫幅、插屏與激勵影片廣告。AdMob 可能收集並處理：廣告識別符號（Advertising ID）、IP 地址、裝置型號與作業系統版本、粗略位置（由 IP 推斷）、廣告展示與點選記錄、崩潰與效能診斷資訊。用途為投放與衡量廣告、防止欺詐。詳見 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 隱私政策</a> 與 <a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener">AdMob 資料披露</a>。</p>
+      <h3>應用內購買</h3>
+      <p>本應用不提供任何付費內購。免廣告時長通過自願觀看激勵影片獲得，觀看次數與到期時間僅儲存在本機，不上傳伺服器。</p>
+      <p>除上述 SDK 外，本應用不整合其他廣告、統計或社交 SDK；不向第三方出售、出租或交換個人資訊。</p>
+
+      <h2>四、權限說明</h2>
+      <ul>
+        <li><code>INTERNET</code>、<code>ACCESS_NETWORK_STATE</code>：載入廣告。</li>
+        <li><code>com.google.android.gms.permission.AD_ID</code>：讀取廣告識別符號，用於廣告投放與頻次控制。</li>
+      </ul>
+      <p>本應用不申請位置、相機、麥克風、通訊錄、儲存讀寫等權限。對局 AI 完全執行在本地，飛航模式下可正常遊玩。</p>
+
+      <h2>五、兒童隱私</h2>
+      <p>本應用不面向 13 歲以下兒童設計，也不會有意收集兒童的個人資訊。若你認為兒童向我們提供了個人資訊，請通過下方郵箱聯絡，我們會盡快刪除。</p>
+
+      <h2>六、資料保留與刪除</h2>
+      <p>我們不運營伺服器，不儲存你的任何資料。刪除本應用即刪除全部本地資料。若要限制廣告個性化，可在系統“設定 → Google → 廣告”中重置或刪除廣告 ID；免廣告記錄僅儲存在本機，解除安裝即清除。</p>
+
+      <h2>七、你的權利</h2>
+      <p>由於我們不持有你的個人資料，通常無法為你匯出或刪除伺服器端資料。對 AdMob 所處理的資料，可通過上述 Google 連結行使權利。</p>
+
+      <h2>八、政策更新</h2>
+      <p>若功能或第三方 SDK 發生變化，我們會更新本頁並修改生效日期。重大變更會在應用內提示。</p>
+
+      <h2>九、聯絡我們</h2>
+      <p>開發者聯絡郵箱：<a href="mailto:oneusop@163.com">oneusop@163.com</a></p>
     </div>
 
     <!-- English -->

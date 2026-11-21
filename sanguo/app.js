@@ -1,4 +1,4 @@
-/* 三国象棋官网 · 双语切换与轻量交互（无第三方依赖） */
+/* 三国象棋官网 · 三语切换（简中 / 繁中 / English）与轻量交互（无第三方依赖） */
 
 (function () {
   'use strict';
@@ -136,7 +136,152 @@
       privacyMeta: '生效日期：2026 年 11 月 14 日｜适用应用：三国象棋（Android，包名 com.oneusop.sanguo）',
       backHome: '返回官网'
     },
-
+    zhHant: {
+      skip: '跳到主要內容',
+      brand: '三國象棋',
+      brandSub: 'SANGUO XIANGQI',
+      navFeatures: '玩法特性',
+      navFactions: '六方陣營',
+      navHeroes: '武將圖鑑',
+      navShots: '介面',
+      navDownload: '獲取遊戲',
+      getApp: '獲取遊戲',
+      heroEyebrow: '三國群雄 · 一局定天下',
+      heroTitle: '三國象棋',
+      heroTitleSub: 'SANGUO XIANGQI',
+      heroLead: '同樣是車馬炮，棋子卻叫劉備、曹操、關羽、赤兔。選一方旗號，執紅或執黑，一局之內見分曉。',
+      tagAi: '五檔離線 AI',
+      tagFactions: '六方陣營',
+      tagOffline: '不耗流量',
+      tagNoIap: '無內購',
+      playCta: '在 Google Play 獲取',
+      learnMore: '先看看怎麼玩',
+      heroMeta: 'Android 7.0 及以上 · 免費下載 · 簡體 / 繁體 / English / 日本語',
+      heroCardGuanyu: '蜀漢 · 名將',
+      heroCardZhuge: '蜀漢 · 軍師',
+      chipTitle: '九縱十橫',
+      chipSub: '豎屏 / 橫屏都順手',
+      statFactions: '方陣營',
+      statHeroes: '位武將',
+      statAi: '檔離線 AI',
+      statLangs: '種介面語言',
+      featuresKicker: '玩法與特性',
+      featuresTitle: '熟悉的棋盤，陌生的戰場',
+      featuresLead: '規則仍是那套中國象棋：馬走日、象走田、炮翻山。變的是旗號、棋子，與坐在對面的那位軍師。',
+      fAiTitle: '五檔 AI，從入門到大師',
+      fAiDesc: '入門、初級、中級、高階、大師，搜尋深度與預算逐級提升。全部在手機本地運算，飛航模式也能開局。',
+      fRulesTitle: '完整中國象棋規則',
+      fRulesDesc: '蹩馬腿、塞象眼、炮翻山、兵過河、將帥照面與九宮限制；將軍提醒、困斃、長將、三次重複與無進展判和。',
+      fFactionsTitle: '六方陣營，各有旗號',
+      fFactionsDesc: '蜀漢、曹魏、東吳、群雄、西涼、黃巾。主公、謀士、軍師、名馬與戰將，全部有名字。',
+      fHintTitle: '悔棋與軍師提示',
+      fHintDesc: '每局三次免費悔棋；軍師推演為你推薦下一步，需要時再看一段激勵影片。',
+      fLogTitle: '全程中文棋譜',
+      fLogDesc: '每一步都記成「炮八平七」這樣的棋譜，隨時回看，復局推演。',
+      fLayoutTitle: '豎屏橫屏都順手',
+      fLayoutDesc: '單手豎屏、雙手橫屏都能下；平板與筆記本同樣做了佈局適配。',
+      fPiecesTitle: '兩套棋子外觀',
+      fPiecesDesc: '書法字棋子與陣營徽記，紅黑雙方以文字與邊框區分，同陣營也能一眼分明。',
+      fLangTitle: '四語介面',
+      fLangDesc: '簡體中文、繁體中文、English、日本語，預設跟隨系統語言切換。',
+      factionsKicker: '六方陣營',
+      factionsTitle: '六面旗號，一副棋盤',
+      factionsLead: '雙方可以選擇同一陣營：紅黑文字與邊框區分敵我，走法規則完全一致。',
+      lord: '主公',
+      rosterAdvisor: '謀士',
+      rosterStrategist: '軍師',
+      rosterSteed: '名馬',
+      rosterGeneral: '戰將',
+      f0Name: '蜀漢',
+      f0Leader: '劉備',
+      f0Motto: '仁義為旗，匡扶漢室',
+      f0Advisors: '龐統 · 法正',
+      f0Strategists: '諸葛亮 · 徐庶',
+      f0Steeds: '赤兔 · 的盧',
+      f0Generals: '趙雲 · 馬超',
+      f1Name: '曹魏',
+      f1Leader: '曹操',
+      f1Motto: '雄才大略，逐鹿中原',
+      f1Advisors: '荀彧 · 荀攸',
+      f1Strategists: '司馬懿 · 賈詡',
+      f1Steeds: '絕影 · 飛電',
+      f1Generals: '張遼 · 徐晃',
+      f2Name: '東吳',
+      f2Leader: '孫權',
+      f2Motto: '江東豪傑，虎踞龍盤',
+      f2Advisors: '魯肅 · 張昭',
+      f2Strategists: '周瑜 · 陸遜',
+      f2Steeds: '驚帆 · 玉龍',
+      f2Generals: '甘寧 · 凌統',
+      f3Name: '群雄',
+      f3Leader: '袁紹',
+      f3Motto: '諸侯並起，逐鹿天下',
+      f3Advisors: '田豐 · 沮授',
+      f3Strategists: '許攸 · 審配',
+      f3Steeds: '白義 · 踏雪',
+      f3Generals: '公孫瓚 · 袁術',
+      f4Name: '西涼',
+      f4Leader: '董卓',
+      f4Motto: '鐵騎縱橫，威震關隴',
+      f4Advisors: '李儒 · 賈詡',
+      f4Strategists: '蔡邕 · 王允',
+      f4Steeds: '赤兔 · 汗血',
+      f4Generals: '呂布 · 張繡',
+      f5Name: '黃巾',
+      f5Leader: '張角',
+      f5Motto: '蒼天已死，黃天當立',
+      f5Advisors: '張寶 · 張梁',
+      f5Strategists: '波才 · 張曼成',
+      f5Steeds: '黃驃 · 追風',
+      f5Generals: '張燕 · 張牛角',
+      heroesKicker: '武將圖鑑',
+      heroesTitle: '十八位武將，各為其主',
+      heroesLead: '圖鑑中收藏十八幅人物立繪：主公、軍師、謀士與猛將，陣營與身份一目瞭然。',
+      roleLord: '主公',
+      roleGeneral: '名將',
+      roleStrategist: '軍師',
+      roleWarrior: '猛將',
+      roleCommander: '戰將',
+      roleVeteran: '老將',
+      roleAdvisor: '謀士',
+      heroesNote: '圖鑑共 18 幅 · 每局可翻牌檢視',
+      shotsKicker: '介面一覽',
+      shotsTitle: '宣紙棋盤，木紋邊框',
+      shotsLead: '上一步高亮、將軍提醒、吃子記錄與完整棋譜，都在一屏之內。',
+      shotHome: '佈陣點將',
+      shotHomeSub: '選陣營、定難度、執紅先行',
+      shotGame: '對局落子',
+      shotGameSub: '軍師建議與上一步高亮',
+      shotSettings: '偏好設定',
+      shotSettingsSub: '語言、音效、觸感與棋子外觀',
+      shotRules: '規則說明',
+      shotRulesSub: '走法、記譜與勝負裁定',
+      laptopCaption: '橫屏與平板佈局，棋盤更大，落子更穩。',
+      adsKicker: '廣告與免廣告',
+      adsTitle: '免費對弈，也可安靜下棋',
+      adsLead: '免費版包含 Google AdMob 的橫幅、插屏與激勵影片，沒有任何付費內購。自願看完激勵影片，就能累積免廣告時長。',
+      noIap: '無內購 · 無帳號',
+      tierViews: '次觀看',
+      tier1: '免廣告 1 天',
+      tier1Sub: '累積觀看 3 次激勵影片',
+      tier2: '免廣告 1 週',
+      tier2Sub: '累積觀看 10 次激勵影片',
+      tier3: '免廣告 1 個月',
+      tier3Sub: '累積觀看 30 次激勵影片',
+      adsNote: '免廣告期間不展示橫幅與插屏；觀看記錄只儲存在本機，解除安裝即清除。對局 AI 完全離線，不消耗流量。',
+      dlKicker: '免費下載',
+      dlTitle: '坐下來，落一子。',
+      dlLead: '在 Google Play 免費獲取《三國象棋》。Android 7.0 及以上，離線可玩，一局十分鐘。',
+      privacyLink: '隱私政策',
+      dlMeta: '包名 com.oneusop.sanguo · 聯絡',
+      footerTagline: '一方棋局，天下謀略。',
+      contact: '聯絡我們',
+      madeBy: '由 oneusop 出品',
+      footerNote: '非官方三國題材同人作品 · 棋規遵循中國象棋協會通行規則',
+      privacyTitle: '隱私政策',
+      privacyMeta: '生效日期：2026 年 11 月 14 日｜適用應用：三國象棋（Android，包名 com.oneusop.sanguo）',
+      backHome: '返回官網',
+    },
     en: {
       skip: 'Skip to content',
       brand: 'Sanguo Xiangqi',
@@ -280,10 +425,12 @@
   var TITLES = {
     home: {
       zh: '三国象棋 · Sanguo Xiangqi — 六阵营中国象棋，五档离线 AI',
+      'zh-Hant': '三國象棋 · Sanguo Xiangqi — 六陣營中國象棋，五檔離線 AI',
       en: 'Sanguo Xiangqi — Three Kingdoms Chinese Chess with Offline AI'
     },
     privacy: {
       zh: '隐私政策 · 三国象棋',
+      'zh-Hant': '隱私政策 · 三國象棋',
       en: 'Privacy Policy · Sanguo Xiangqi'
     }
   };
@@ -291,30 +438,63 @@
   var DESCS = {
     home: {
       zh: '三国象棋把中国象棋放进三国乱世：六方阵营、十八位武将、五档离线 AI，无需联网，一局定天下。',
+      'zh-Hant': '三國象棋把中國象棋放進三國亂世：六方陣營、十八位武將、五檔離線 AI，無需聯網，一局定天下。',
       en: 'Six Three Kingdoms factions, eighteen painted heroes and five offline AI levels. Classic Chinese chess, no internet needed.'
     },
     privacy: {
       zh: '三国象棋隐私政策：不设账号、不收集通讯录与位置，设置与进度仅保存在本机。',
+      'zh-Hant': '三國象棋隱私政策：不設帳號、不收集通訊錄與位置，設定與進度僅儲存在本機。',
       en: 'Sanguo Xiangqi privacy policy: no accounts, no contacts or location, settings stay on your device.'
     }
   };
 
   var root = document.documentElement;
   var page = /privacy\.html$/.test(location.pathname) ? 'privacy' : 'home';
-  var queryLang = null;
-  try {
-    queryLang = new URLSearchParams(location.search).get('lang');
-  } catch (e) {}
-  var current =
-    queryLang === 'en' || queryLang === 'zh'
-      ? queryLang
-      : root.getAttribute('lang') === 'en'
-        ? 'en'
-        : 'zh';
+
+  var SUPPORTED = ['zh', 'zh-Hant', 'en'];
+  var LANG_ATTR = { 'zh': 'zh-Hans', 'zh-Hant': 'zh-Hant', en: 'en' };
+
+  var HANT_NAMES = {
+    '刘备': '劉備', '曹操': '曹操', '孙权': '孫權', '关羽': '關羽',
+    '诸葛亮': '諸葛亮', '司马懿': '司馬懿', '周瑜': '周瑜', '吕布': '呂布',
+    '赵云': '趙雲', '张飞': '張飛', '马超': '馬超', '黄忠': '黃忠',
+    '庞统': '龐統', '郭嘉': '郭嘉', '荀彧': '荀彧', '张辽': '張遼',
+    '鲁肃': '魯肅', '甘宁': '甘寧',
+    '吴': '吳', '凉': '涼', '黄': '黃'
+  };
+
+  function normalizeLang(code) {
+    if (!code) return null;
+    code = String(code).toLowerCase();
+    if (code === 'en') return 'en';
+    if (code === 'zh' || code === 'zh-hans' || code === 'zh-cn' || code === 'cn') return 'zh';
+    if (code === 'zh-hant' || code === 'zh-tw' || code === 'zh-hk' || code === 'zh-mo' || code === 'hant' || code === 'tw') return 'zh-Hant';
+    return null;
+  }
+
+  function detectLang() {
+    var qs = null;
+    try { qs = new URLSearchParams(location.search).get('lang'); } catch (e) {}
+    var n = normalizeLang(qs);
+    if (n) return n;
+
+    var saved = null;
+    try { saved = localStorage.getItem('sanguo_lang'); } catch (e) {}
+    n = normalizeLang(saved);
+    if (n) return n;
+
+    var nav = (navigator.language || navigator.browserLanguage || 'zh').toLowerCase();
+    if (nav.indexOf('en') === 0) return 'en';
+    if (/zh-(hant|tw|hk|mo)/.test(nav)) return 'zh-Hant';
+    if (nav.indexOf('zh') === 0) return 'zh';
+    return 'zh';
+  }
+
+  var current = detectLang();
 
   function applyLang(lang) {
-    current = lang === 'en' ? 'en' : 'zh';
-    root.setAttribute('lang', current === 'en' ? 'en' : 'zh-Hans');
+    current = SUPPORTED.indexOf(lang) >= 0 ? lang : 'zh';
+    root.setAttribute('lang', LANG_ATTR[current]);
 
     var dict = I18N[current];
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
@@ -328,19 +508,31 @@
       btn.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
 
+    // 武将名 / 阵营字：繁中切换（保留 <small> 等子元素）
+    function applyHan(el) {
+      if (el.dataset.orig == null) {
+        el.dataset.orig = el.firstChild ? el.firstChild.textContent : el.textContent;
+      }
+      var orig = el.dataset.orig;
+      var val = current === 'zh-Hant' ? (HANT_NAMES[orig] || orig) : orig;
+      if (el.firstChild) el.firstChild.textContent = val;
+      else el.textContent = val;
+    }
+    document.querySelectorAll('.hc-name > span:first-child, .hero-card figcaption, .f-seal').forEach(applyHan);
+
     // 截图在中英文之间切换（应用内截图本身是双语版本）
     document.querySelectorAll('img[data-shot]').forEach(function (img) {
       var name = img.getAttribute('data-shot');
       img.src = 'assets/sanguo/shots/' + (current === 'en' ? 'en/' : '') + name + '.png';
     });
 
-    if (TITLES[page]) document.title = TITLES[page][current];
-    var meta = document.querySelector('meta[name="description"]');
-    if (meta && DESCS[page]) meta.setAttribute('content', DESCS[page][current]);
+    if (TITLES[page]) document.title = TITLES[page][current] || TITLES[page].zh;
+    var metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc && DESCS[page]) metaDesc.setAttribute('content', DESCS[page][current] || DESCS[page].zh);
     var ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle && TITLES[page]) ogTitle.setAttribute('content', TITLES[page][current]);
+    if (ogTitle && TITLES[page]) ogTitle.setAttribute('content', TITLES[page][current] || TITLES[page].zh);
     var ogDesc = document.querySelector('meta[property="og:description"]');
-    if (ogDesc && DESCS[page]) ogDesc.setAttribute('content', DESCS[page][current]);
+    if (ogDesc && DESCS[page]) ogDesc.setAttribute('content', DESCS[page][current] || DESCS[page].zh);
 
     try {
       localStorage.setItem('sanguo_lang', current);
@@ -354,6 +546,7 @@
   });
 
   applyLang(current);
+
 
   // 顶栏滚动态
   var header = document.querySelector('.site-header');
