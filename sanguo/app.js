@@ -84,7 +84,7 @@
 
       heroesKicker: '武将图鉴',
       heroesTitle: '武将立绘，先睹为快',
-      heroesLead: '精选六幅人物立绘：主公、军师与猛将，阵营与身份一目了然；其余武将在应用内等你翻牌。',
+      heroesLead: '精选四幅人物立绘：主公与名将、军师，阵营与身份一目了然；其余武将在应用内等你翻牌。',
       roleLord: '主公',
       roleGeneral: '名将',
       roleStrategist: '军师',
@@ -236,7 +236,7 @@
       f5Generals: '張燕 · 張牛角',
       heroesKicker: '武將圖鑑',
       heroesTitle: '武將立繪，先睹為快',
-      heroesLead: '精選六幅人物立繪：主公、軍師與猛將，陣營與身份一目瞭然；其餘武將在應用內等你翻牌。',
+      heroesLead: '精選四幅人物立繪：主公與名將、軍師，陣營與身份一目瞭然；其餘武將在應用內等你翻牌。',
       roleLord: '主公',
       roleGeneral: '名將',
       roleStrategist: '軍師',
@@ -366,7 +366,7 @@
       heroesKicker: 'Hero gallery',
       heroesTitle: 'Meet the heroes',
       heroesLead:
-        'A selection of six painted portraits — lords, strategists and warriors, each with a banner and a role. The rest are in the app.',
+        'A selection of four painted portraits — lords, generals and strategists, each with a banner and a role. The rest are in the app.',
       roleLord: 'Lord',
       roleGeneral: 'General',
       roleStrategist: 'Strategist',
