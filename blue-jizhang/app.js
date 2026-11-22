@@ -1,4 +1,4 @@
-/* 蓝色记账官网 · 站点文案与配置（公共逻辑见 ../../shared/site.js） */
+/* 蓝色记账官网 · 站点文案与配置（公共逻辑见 ../shared/site.js） */
 
 (function () {
   'use strict';
