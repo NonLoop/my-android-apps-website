@@ -1,4 +1,4 @@
-/* 三国象棋官网 · 三语切换（简中 / 繁中 / English）与轻量交互（无第三方依赖） */
+/* 三国象棋官网 · 站点文案与配置（公共逻辑见 ../../shared/site.js） */
 
 (function () {
   'use strict';
@@ -448,164 +448,13 @@
     }
   };
 
-  var root = document.documentElement;
-  var page = /privacy\.html$/.test(location.pathname) ? 'privacy' : 'home';
-
-  var SUPPORTED = ['zh', 'zh-Hant', 'en'];
-  var LANG_ATTR = { 'zh': 'zh-Hans', 'zh-Hant': 'zh-Hant', en: 'en' };
-
-  var HANT_NAMES = {
-    '刘备': '劉備', '曹操': '曹操', '孙权': '孫權', '关羽': '關羽',
-    '诸葛亮': '諸葛亮', '司马懿': '司馬懿', '周瑜': '周瑜', '吕布': '呂布',
-    '赵云': '趙雲', '张飞': '張飛', '马超': '馬超', '黄忠': '黃忠',
-    '庞统': '龐統', '郭嘉': '郭嘉', '荀彧': '荀彧', '张辽': '張遼',
-    '鲁肃': '魯肅', '甘宁': '甘寧',
-    '吴': '吳', '凉': '涼', '黄': '黃'
-  };
-
-  function normalizeLang(code) {
-    if (!code) return null;
-    code = String(code).toLowerCase();
-    if (code === 'en') return 'en';
-    if (code === 'zh' || code === 'zh-hans' || code === 'zh-cn' || code === 'cn') return 'zh';
-    if (code === 'zh-hant' || code === 'zh-tw' || code === 'zh-hk' || code === 'zh-mo' || code === 'hant' || code === 'tw') return 'zh-Hant';
-    return null;
-  }
-
-  function detectLang() {
-    var qs = null;
-    try { qs = new URLSearchParams(location.search).get('lang'); } catch (e) {}
-    var n = normalizeLang(qs);
-    if (n) return n;
-
-    var saved = null;
-    try { saved = localStorage.getItem('sanguo_lang'); } catch (e) {}
-    n = normalizeLang(saved);
-    if (n) return n;
-
-    var nav = (navigator.language || navigator.browserLanguage || 'zh').toLowerCase();
-    if (nav.indexOf('en') === 0) return 'en';
-    if (/zh-(hant|tw|hk|mo)/.test(nav)) return 'zh-Hant';
-    if (nav.indexOf('zh') === 0) return 'zh';
-    return 'zh';
-  }
-
-  var current = detectLang();
-
-  function applyLang(lang) {
-    current = SUPPORTED.indexOf(lang) >= 0 ? lang : 'zh';
-    root.setAttribute('lang', LANG_ATTR[current]);
-
-    var dict = I18N[current];
-    document.querySelectorAll('[data-i18n]').forEach(function (el) {
-      var key = el.getAttribute('data-i18n');
-      if (dict[key] != null) el.textContent = dict[key];
-    });
-
-    document.querySelectorAll('[data-set-lang]').forEach(function (btn) {
-      var on = btn.getAttribute('data-set-lang') === current;
-      btn.classList.toggle('is-on', on);
-      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
-    });
-
-    // 武将名 / 阵营字：繁中切换（保留 <small> 等子元素）
-    function applyHan(el) {
-      if (el.dataset.orig == null) {
-        el.dataset.orig = el.firstChild ? el.firstChild.textContent : el.textContent;
-      }
-      var orig = el.dataset.orig;
-      var val = current === 'zh-Hant' ? (HANT_NAMES[orig] || orig) : orig;
-      if (el.firstChild) el.firstChild.textContent = val;
-      else el.textContent = val;
-    }
-    document.querySelectorAll('.hc-name > span:first-child, .hero-card figcaption, .f-seal').forEach(applyHan);
-
-    // 截图在中英文之间切换（应用内截图本身是双语版本）
-    document.querySelectorAll('img[data-shot]').forEach(function (img) {
-      var name = img.getAttribute('data-shot');
-      img.src = 'assets/sanguo/shots/' + (current === 'en' ? 'en/' : '') + name + '.png';
-    });
-
-    if (TITLES[page]) document.title = TITLES[page][current] || TITLES[page].zh;
-    var metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc && DESCS[page]) metaDesc.setAttribute('content', DESCS[page][current] || DESCS[page].zh);
-    var ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle && TITLES[page]) ogTitle.setAttribute('content', TITLES[page][current] || TITLES[page].zh);
-    var ogDesc = document.querySelector('meta[property="og:description"]');
-    if (ogDesc && DESCS[page]) ogDesc.setAttribute('content', DESCS[page][current] || DESCS[page].zh);
-
-    try {
-      localStorage.setItem('sanguo_lang', current);
-    } catch (e) {}
-  }
-
-  document.querySelectorAll('[data-set-lang]').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      applyLang(btn.getAttribute('data-set-lang'));
-    });
+  SiteApp.init({
+    storageKey: 'sanguo_lang',
+    i18n: I18N,
+    titles: TITLES,
+    descs: DESCS,
+    hanMap: HANT_NAMES,
+    shotBase: 'assets/sanguo/shots/',
+    shotStyle: 'enOnly',
   });
-
-  applyLang(current);
-
-
-  // 顶栏滚动态
-  var header = document.querySelector('.site-header');
-  function onScroll() {
-    if (!header) return;
-    header.classList.toggle('is-scrolled', window.scrollY > 12);
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  // 移动端菜单
-  var menuBtn = document.getElementById('menuBtn');
-  var nav = document.getElementById('nav');
-  if (menuBtn && nav) {
-    menuBtn.addEventListener('click', function () {
-      var open = menuBtn.getAttribute('aria-expanded') === 'true';
-      menuBtn.setAttribute('aria-expanded', open ? 'false' : 'true');
-      menuBtn.setAttribute('aria-label', open ? '打开菜单' : '关闭菜单');
-      nav.classList.toggle('is-open', !open);
-    });
-
-    nav.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        menuBtn.setAttribute('aria-expanded', 'false');
-        nav.classList.remove('is-open');
-      });
-    });
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && nav.classList.contains('is-open')) {
-        menuBtn.setAttribute('aria-expanded', 'false');
-        nav.classList.remove('is-open');
-      }
-    });
-  }
-
-  // 滚动浮现
-  var items = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-in');
-            io.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
-    );
-    items.forEach(function (el) {
-      io.observe(el);
-    });
-  } else {
-    items.forEach(function (el) {
-      el.classList.add('is-in');
-    });
-  }
-
-  var year = document.getElementById('year');
-  if (year) year.textContent = new Date().getFullYear();
 })();
