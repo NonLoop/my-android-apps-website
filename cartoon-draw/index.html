@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>卡通绘画 · Cartoon Drawing — 29 张线稿描摹与自由涂鸦</title>
+<meta name="description" content="卡通绘画：照着 29 张卡通动物线稿描摹，也能隐藏线稿自由涂鸦。画笔、贴纸、九种画布底色，作品只留在手机里。">
+<meta name="keywords" content="卡通绘画,儿童绘画,涂鸦,描摹,简笔画,填色,画画,Cartoon Drawing,kids drawing,doodle,tracing">
+<meta name="author" content="oneusop">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#1b1526">
+<meta name="application-name" content="Cartoon Drawing">
+<link rel="canonical" href="https://nonloop.github.io/my-android-apps-website/cartoon-draw/">
+<link rel="alternate" hreflang="zh-Hans" href="https://nonloop.github.io/my-android-apps-website/cartoon-draw/">
+<link rel="alternate" hreflang="zh-Hant" href="https://nonloop.github.io/my-android-apps-website/cartoon-draw/?lang=zh-Hant">
+<link rel="alternate" hreflang="en" href="https://nonloop.github.io/my-android-apps-website/cartoon-draw/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://nonloop.github.io/my-android-apps-website/cartoon-draw/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="卡通绘画 Cartoon Drawing">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="zh_TW">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://nonloop.github.io/my-android-apps-website/cartoon-draw/">
+<meta property="og:title" content="卡通绘画 · Cartoon Drawing">
+<meta property="og:description" content="照着 29 张卡通动物线稿描摹，或隐藏线稿自由涂鸦。作品只留在手机里。">
+<meta property="og:image" content="https://nonloop.github.io/my-android-apps-website/cartoon-draw/assets/cartoon/feature.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="卡通绘画 · Cartoon Drawing">
+<meta name="twitter:description" content="Trace 29 cartoon animals or hide the lines and doodle freely. Artwork stays on your phone.">
+<meta name="twitter:image" content="https://nonloop.github.io/my-android-apps-website/cartoon-draw/assets/cartoon/feature.png">
+
+<link rel="icon" type="image/png" href="assets/cartoon/icon.png">
+<link rel="apple-touch-icon" href="assets/cartoon/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>
+  (function () {
+    var root = document.documentElement;
+    root.classList.add('js');
+    function norm(code) {
+      if (!code) return null;
+      code = String(code).toLowerCase();
+      if (code === 'en') return 'en';
+      if (code === 'zh' || code === 'zh-hans' || code === 'zh-cn') return 'zh';
+      if (code === 'zh-hant' || code === 'zh-tw' || code === 'zh-hk' || code === 'zh-mo') return 'zh-Hant';
+      return null;
+    }
+    var saved = null;
+    try { saved = localStorage.getItem('cartoondraw_lang'); } catch (e) {}
+    var lang = norm(saved);
+    var q = null;
+    try { q = new URLSearchParams(location.search).get('lang'); } catch (e) {}
+    var qn = norm(q);
+    if (qn) lang = qn;
+    if (!lang) {
+      var nav = (navigator.language || 'zh').toLowerCase();
+      if (nav.indexOf('en') === 0) lang = 'en';
+      else if (/zh-(hant|tw|hk|mo)/.test(nav)) lang = 'zh-Hant';
+      else lang = 'zh';
+    }
+    root.setAttribute('lang', lang === 'en' ? 'en' : lang === 'zh-Hant' ? 'zh-Hant' : 'zh-Hans');
+  })();
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main" data-i18n="skip">跳到主要内容</a>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="Cartoon Drawing">
+      <img class="brand-icon" src="assets/cartoon/icon.png" alt="卡通绘画图标" width="40" height="40">
+      <span class="brand-text">
+        <strong data-i18n="brand">卡通绘画</strong>
+        <small data-i18n="brandSub">CARTOON DRAWING</small>
+      </span>
+    </a>
+    <nav class="nav" id="nav" aria-label="主导航">
+      <a href="#features" data-i18n="navFeatures">玩法特性</a>
+      <a href="#templates" data-i18n="navTemplates">线稿图鉴</a>
+      <a href="#shots" data-i18n="navShots">界面</a>
+      <a href="#download" data-i18n="navDownload">获取应用</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang" role="group" aria-label="Language / 语言">
+        <button type="button" data-set-lang="zh" class="is-on">中</button>
+        <button type="button" data-set-lang="zh-Hant">繁</button>
+        <button type="button" data-set-lang="en">EN</button>
+      </div>
+      <a class="btn btn-gold btn-sm" href="https://play.google.com/store/apps/details?id=com.oneusop.painting1" target="_blank" rel="noopener" data-i18n="getApp">获取应用</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav" aria-label="打开菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <!-- ============================== HERO ============================== -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <span class="grid"></span>
+      <span class="glow g1"></span>
+      <span class="glow g2"></span>
+      <span class="glyph">画</span>
+    </div>
+
+    <div class="wrap">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="seal">画</span><span data-i18n="heroEyebrow">描摹与涂鸦 · 释放你的创造力</span></p>
+          <h1 class="hero-title">
+            <span data-i18n="heroTitle">卡通绘画</span>
+            <em data-i18n="heroTitleSub">CARTOON DRAWING</em>
+          </h1>
+          <p class="hero-lead" data-i18n="heroLead">画板上会淡淡印着一只卡通动物：照着描，或者把线稿藏起来自己画。画完存进「我的作品」，用系统分享发出去。</p>
+          <ul class="hero-tags">
+            <li data-i18n="tagTrace">29 张线稿</li>
+            <li data-i18n="tagStickers">贴纸装饰</li>
+            <li data-i18n="tagLangs">三语界面</li>
+            <li data-i18n="tagNoIap">无内购</li>
+          </ul>
+          <div class="hero-cta">
+            <a class="btn btn-gold play-btn" href="https://play.google.com/store/apps/details?id=com.oneusop.painting1" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.6v18.8c0 .5.5.8.9.5l14.6-9.4c.4-.3.4-.8 0-1L4.9 2.1c-.4-.3-.9 0-.9.5Z" fill="currentColor"/></svg>
+              <span data-i18n="playCta">在 Google Play 获取</span>
+            </a>
+            <a class="btn btn-ghost" href="https://apps.apple.com/app/id6462798026" target="_blank" rel="noopener" data-i18n="appStoreCta">在 App Store 获取</a>
+          </div>
+          <p class="hero-meta" data-i18n="heroMeta">iOS 13+ · Android 5.0+ · 免费 · 简体 / English / 日本語</p>
+        </div>
+
+        <div class="hero-art" aria-hidden="false">
+          <figure class="hero-card hc-left">
+            <img src="assets/cartoon/animals/01.png" alt="卡通动物线稿" loading="eager">
+            <figcaption><span data-i18n="heroCardA">卡通动物</span><small data-i18n="heroCardASub">淡淡的线稿</small></figcaption>
+          </figure>
+          <figure class="phone">
+            <img data-shot="canvas" src="assets/cartoon/shots/zh/canvas.png" alt="卡通绘画画板界面" width="1080" height="1920">
+          </figure>
+          <figure class="hero-card hc-right">
+            <img src="assets/cartoon/animals/04.png" alt="卡通动物线稿" loading="eager">
+            <figcaption><span data-i18n="heroCardB">自由涂鸦</span><small data-i18n="heroCardBSub">配色与贴纸</small></figcaption>
+          </figure>
+          <div class="hero-chip">
+            <span class="chip-seal">藏</span>
+            <span>
+              <b data-i18n="chipTitle">29 张线稿</b>
+              <span data-i18n="chipSub">陆地 / 海洋，可收藏</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat"><b>29</b><span data-i18n="statOutlines">张线稿</span></div>
+        <div class="stat"><b>9</b><span data-i18n="statColors">种画布底色</span></div>
+        <div class="stat"><b>3</b><span data-i18n="statLangs">种界面语言</span></div>
+        <div class="stat"><b>0</b><span data-i18n="statIap">个付费内购</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FEATURES ============================ -->
+  <section class="section" id="features">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="kicker" data-i18n="featuresKicker">玩法与特性</p>
+        <h2 data-i18n="featuresTitle">小小画板，大大的创造力</h2>
+        <p class="section-lead" data-i18n="featuresLead">选一只喜欢的动物，照着淡淡的线稿描；描熟了就调淡，或者干脆藏起来，画出自己的版本。</p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature reveal" data-delay="0">
+          <span class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="14" r="3"/><path d="M13.5 20a4 4 0 0 1 7 0"/></svg></span>
+          <h3 data-i18n="fTraceTitle">29 张卡通线稿</h3>
+          <p data-i18n="fTraceDesc">长颈鹿、小熊、小猫、小马、小鱼……分成陆地与海洋两类，喜欢的可以收藏，随时回来再画。</p>
+        </article>
+        <article class="feature reveal" data-delay="1">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M4 20c5-1 12-8 15-14a2.2 2.2 0 0 0-3-3C10 6 3.5 13 4 20Z"/><path d="M4 20c2-4 4-6 7-8"/></svg></span>
+          <h3 data-i18n="fDoodleTitle">描摹或自由画</h3>
+          <p data-i18n="fDoodleDesc">线稿浓淡可调：照着描、调淡一点，或者完全隐藏，同一只动物能画出无数个版本。</p>
+        </article>
+        <article class="feature reveal" data-delay="2">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="m14 5 5 5-9.5 9.5a2 2 0 0 1-1.4.6H5v-4.1a2 2 0 0 1 .6-1.4Z"/><path d="m12 7 5 5"/></svg></span>
+          <h3 data-i18n="fToolsTitle">顺手的画笔工具</h3>
+          <p data-i18n="fToolsDesc">画笔粗细与透明度可调，配橡皮与撤销，画错一步也不怕，随时重来。</p>
+        </article>
+        <article class="feature reveal" data-delay="3">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l2.2 5.3L20 9l-4.4 3.8L16.8 19 12 15.8 7.2 19l1.2-6.2L4 9l5.8-.7Z"/></svg></span>
+          <h3 data-i18n="fStickerTitle">贴纸装饰</h3>
+          <p data-i18n="fStickerDesc">把可爱的贴纸贴到画上，一幅安静的涂鸦立刻热闹起来。</p>
+        </article>
+        <article class="feature reveal" data-delay="0">
+          <span class="ico"><svg viewBox="0 0 24 24"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><circle cx="12" cy="16" r="3"/></svg></span>
+          <h3 data-i18n="fCanvasTitle">九种画布底色</h3>
+          <p data-i18n="fCanvasDesc">柔和的画布配色，换一种底色，就有一种新的心情。</p>
+        </article>
+        <article class="feature reveal" data-delay="1">
+          <span class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2.5"/><path d="M8 15c1.5-2 3-3 4-3s2.5 1 4 3"/><circle cx="9.5" cy="9.5" r="1"/></svg></span>
+          <h3 data-i18n="fSaveTitle">作品保存在本机</h3>
+          <p data-i18n="fSaveDesc">画完存进「我的作品」，也能用系统分享发出去；不读取相册、不上传服务器，卸载应用即一并删除。</p>
+        </article>
+        <article class="feature reveal" data-delay="2">
+          <span class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18Z"/></svg></span>
+          <h3 data-i18n="fLangTitle">三语界面</h3>
+          <p data-i18n="fLangDesc">简体中文、English、日本語，跟随系统语言，也可在设置里手动切换。</p>
+        </article>
+        <article class="feature reveal" data-delay="3">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <h3 data-i18n="fFreeTitle">无账号无内购</h3>
+          <p data-i18n="fFreeDesc">不用注册，没有付费内购；免费下载，打开就画。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ TEMPLATES ============================ -->
+  <section class="section templates" id="templates">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <p class="kicker" data-i18n="tplKicker">线稿图鉴</p>
+        <h2 data-i18n="tplTitle">29 只卡通动物，等你来画</h2>
+        <p class="section-lead" data-i18n="tplLead">线稿分成陆地与海洋两类，浓淡可调，还能收藏。下面是图鉴中的几位。</p>
+      </div>
+    </div>
+
+    <div class="marquee-wrap">
+      <div class="marquee">
+        <div class="marquee-group">
+          <article class="hero-card-item" style="--fc:#ff8a66"><span class="hc-tag">画</span><img src="assets/cartoon/animals/01.png" alt="卡通动物线稿" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 01</span></div></article>
+          <article class="hero-card-item" style="--fc:#6cc6e8"><span class="hc-tag">画</span><img src="assets/cartoon/animals/02.png" alt="卡通动物线稿" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 02</span></div></article>
+          <article class="hero-card-item" style="--fc:#ffc94d"><span class="hc-tag">画</span><img src="assets/cartoon/animals/03.png" alt="卡通动物线稿" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 03</span></div></article>
+          <article class="hero-card-item" style="--fc:#8fd6a0"><span class="hc-tag">画</span><img src="assets/cartoon/animals/04.png" alt="卡通动物线稿" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 04</span></div></article>
+          <article class="hero-card-item" style="--fc:#c39ce0"><span class="hc-tag">画</span><img src="assets/cartoon/animals/05.png" alt="卡通动物线稿" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 05</span></div></article>
+          <article class="hero-card-item" style="--fc:#f49fbc"><span class="hc-tag">画</span><img src="assets/cartoon/animals/06.png" alt="卡通动物线稿" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 06</span></div></article>
+          <article class="hero-card-item" style="--fc:#7fb0f2"><span class="hc-tag">画</span><img src="assets/cartoon/animals/07.png" alt="卡通动物线稿" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 07</span></div></article>
+          <article class="hero-card-item" style="--fc:#ffb491"><span class="hc-tag">画</span><img src="assets/cartoon/animals/08.png" alt="卡通动物线稿" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 08</span></div></article>
+        </div>
+        <div class="marquee-group" aria-hidden="true">
+          <article class="hero-card-item" style="--fc:#ff8a66"><span class="hc-tag">画</span><img src="assets/cartoon/animals/01.png" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 01</span></div></article>
+          <article class="hero-card-item" style="--fc:#6cc6e8"><span class="hc-tag">画</span><img src="assets/cartoon/animals/02.png" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 02</span></div></article>
+          <article class="hero-card-item" style="--fc:#ffc94d"><span class="hc-tag">画</span><img src="assets/cartoon/animals/03.png" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 03</span></div></article>
+          <article class="hero-card-item" style="--fc:#8fd6a0"><span class="hc-tag">画</span><img src="assets/cartoon/animals/04.png" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 04</span></div></article>
+          <article class="hero-card-item" style="--fc:#c39ce0"><span class="hc-tag">画</span><img src="assets/cartoon/animals/05.png" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 05</span></div></article>
+          <article class="hero-card-item" style="--fc:#f49fbc"><span class="hc-tag">画</span><img src="assets/cartoon/animals/06.png" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 06</span></div></article>
+          <article class="hero-card-item" style="--fc:#7fb0f2"><span class="hc-tag">画</span><img src="assets/cartoon/animals/07.png" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 07</span></div></article>
+          <article class="hero-card-item" style="--fc:#ffb491"><span class="hc-tag">画</span><img src="assets/cartoon/animals/08.png" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 08</span></div></article>
+        </div>
+      </div>
+    </div>
+
+    <div class="marquee-wrap">
+      <div class="marquee reverse">
+        <div class="marquee-group">
+          <article class="hero-card-item" style="--fc:#9fe0c4"><span class="hc-tag">画</span><img src="assets/cartoon/animals/09.png" alt="卡通动物线稿" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 09</span></div></article>
+          <article class="hero-card-item" style="--fc:#ffd98e"><span class="hc-tag">画</span><img src="assets/cartoon/animals/10.png" alt="卡通动物线稿" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 10</span></div></article>
+          <article class="hero-card-item" style="--fc:#b7a8ef"><span class="hc-tag">画</span><img src="assets/cartoon/animals/11.png" alt="卡通动物线稿" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 11</span></div></article>
+          <article class="hero-card-item" style="--fc:#f2a3a3"><span class="hc-tag">画</span><img src="assets/cartoon/animals/12.png" alt="卡通动物线稿" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 12</span></div></article>
+          <article class="hero-card-item" style="--fc:#8cc7f0"><span class="hc-tag">画</span><img src="assets/cartoon/animals/05.png" alt="卡通动物线稿" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 13</span></div></article>
+          <article class="hero-card-item" style="--fc:#a7d8a0"><span class="hc-tag">画</span><img src="assets/cartoon/animals/03.png" alt="卡通动物线稿" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 14</span></div></article>
+          <article class="hero-card-item" style="--fc:#f6b0d9"><span class="hc-tag">画</span><img src="assets/cartoon/animals/07.png" alt="卡通动物线稿" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 15</span></div></article>
+          <article class="hero-card-item" style="--fc:#c9b06a"><span class="hc-tag">画</span><img src="assets/cartoon/animals/02.png" alt="卡通动物线稿" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 16</span></div></article>
+        </div>
+        <div class="marquee-group" aria-hidden="true">
+          <article class="hero-card-item" style="--fc:#9fe0c4"><span class="hc-tag">画</span><img src="assets/cartoon/animals/09.png" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 09</span></div></article>
+          <article class="hero-card-item" style="--fc:#ffd98e"><span class="hc-tag">画</span><img src="assets/cartoon/animals/10.png" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 10</span></div></article>
+          <article class="hero-card-item" style="--fc:#b7a8ef"><span class="hc-tag">画</span><img src="assets/cartoon/animals/11.png" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 11</span></div></article>
+          <article class="hero-card-item" style="--fc:#f2a3a3"><span class="hc-tag">画</span><img src="assets/cartoon/animals/12.png" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 12</span></div></article>
+          <article class="hero-card-item" style="--fc:#8cc7f0"><span class="hc-tag">画</span><img src="assets/cartoon/animals/05.png" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 13</span></div></article>
+          <article class="hero-card-item" style="--fc:#a7d8a0"><span class="hc-tag">画</span><img src="assets/cartoon/animals/03.png" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 14</span></div></article>
+          <article class="hero-card-item" style="--fc:#f6b0d9"><span class="hc-tag">画</span><img src="assets/cartoon/animals/07.png" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 15</span></div></article>
+          <article class="hero-card-item" style="--fc:#c9b06a"><span class="hc-tag">画</span><img src="assets/cartoon/animals/02.png" alt="" loading="lazy"><div class="hc-info"><div class="hc-name"><span data-i18n="tplCardName">卡通动物</span><span class="hc-role" data-i18n="tplCardRole">线稿</span></div><span class="hc-en">NO. 16</span></div></article>
+        </div>
+      </div>
+    </div>
+
+    <p class="heroes-note reveal" data-i18n="tplNote">图鉴共 29 张 · 应用内可收藏喜欢的线稿</p>
+  </section>
+
+  <!-- =========================== SCREENSHOTS =========================== -->
+  <section class="section shots" id="shots">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="kicker" data-i18n="shotsKicker">界面一览</p>
+        <h2 data-i18n="shotsTitle">大色块、圆按钮，孩子也能上手</h2>
+        <p class="section-lead" data-i18n="shotsLead">画笔、调色、贴纸与设置，都在一屏之内，动动手指就能开始。</p>
+      </div>
+
+      <div class="shot-grid">
+        <figure class="shot reveal" data-delay="0">
+          <div class="shot-frame"><img data-shot="canvas" src="assets/cartoon/shots/zh/canvas.png" alt="画板界面" loading="lazy"></div>
+          <figcaption><b data-i18n="shotCanvas">起笔画板</b><span data-i18n="shotCanvasSub">描摹线稿或自由涂鸦</span></figcaption>
+        </figure>
+        <figure class="shot reveal" data-delay="1">
+          <div class="shot-frame"><img data-shot="colors" src="assets/cartoon/shots/zh/colors.png" alt="调色盘界面" loading="lazy"></div>
+          <figcaption><b data-i18n="shotColors">调色盘</b><span data-i18n="shotColorsSub">颜色、粗细与透明度</span></figcaption>
+        </figure>
+        <figure class="shot reveal" data-delay="2">
+          <div class="shot-frame"><img data-shot="tools" src="assets/cartoon/shots/zh/tools.png" alt="工具栏界面" loading="lazy"></div>
+          <figcaption><b data-i18n="shotTools">工具栏</b><span data-i18n="shotToolsSub">橡皮、撤销、贴纸与清空</span></figcaption>
+        </figure>
+        <figure class="shot reveal" data-delay="3">
+          <div class="shot-frame"><img data-shot="animals" src="assets/cartoon/shots/zh/animals.png" alt="动物线稿选择" loading="lazy"></div>
+          <figcaption><b data-i18n="shotAnimals">挑一只动物</b><span data-i18n="shotAnimalsSub">陆地与海洋，浓淡可调</span></figcaption>
+        </figure>
+        <figure class="shot reveal" data-delay="0">
+          <div class="shot-frame"><img data-shot="theme" src="assets/cartoon/shots/zh/theme.png" alt="画布配色" loading="lazy"></div>
+          <figcaption><b data-i18n="shotTheme">画布配色</b><span data-i18n="shotThemeSub">九种柔和底色</span></figcaption>
+        </figure>
+        <figure class="shot reveal" data-delay="1">
+          <div class="shot-frame"><img data-shot="settings" src="assets/cartoon/shots/zh/settings.png" alt="设置界面" loading="lazy"></div>
+          <figcaption><b data-i18n="shotSettings">偏好设置</b><span data-i18n="shotSettingsSub">语言、主题与更多</span></figcaption>
+        </figure>
+      </div>
+
+      <figure class="laptop-shot reveal">
+        <div class="laptop-frame">
+          <img src="assets/cartoon/feature.png" alt="卡通绘画宣传图" loading="lazy">
+        </div>
+        <figcaption data-i18n="featureCaption">描摹或自由涂鸦，作品只留在手机里。</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- =============================== ADS ============================== -->
+  <section class="section" id="ads">
+    <div class="wrap">
+      <div class="ads-panel reveal">
+        <div class="ads-head">
+          <div>
+            <p class="kicker" data-i18n="adsKicker">广告与免广告</p>
+            <h2 data-i18n="adsTitle">免费画画，也能安静地画</h2>
+            <p data-i18n="adsLead">免费版包含 Google AdMob 的插屏、激励视频与激励插屏，没有付费内购。自愿看完激励视频，就能暂时去掉广告。</p>
+          </div>
+          <span class="no-iap">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            <span data-i18n="noIap">无内购 · 无账号</span>
+          </span>
+        </div>
+
+        <div class="tier-grid">
+          <div class="tier">
+            <span class="tier-seal"><span class="tier-num">3</span><small data-i18n="tierViews">次观看</small></span>
+            <div>
+              <b data-i18n="tier1">免广告 1 天</b>
+              <span data-i18n="tier1Sub">累计观看 3 次激励视频</span>
+            </div>
+          </div>
+          <div class="tier">
+            <span class="tier-seal"><span class="tier-num">7</span><small data-i18n="tierViews">次观看</small></span>
+            <div>
+              <b data-i18n="tier2">免广告 1 周</b>
+              <span data-i18n="tier2Sub">累计观看 7 次激励视频</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="ads-note" data-i18n="adsNote">免广告期间不再展示插屏；观看记录只保存在本机，卸载即清除。绘画本身完全离线，不消耗流量。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= DOWNLOAD ============================ -->
+  <section class="section download" id="download">
+    <div class="wrap">
+      <div class="download-panel reveal">
+        <div class="dl-copy">
+          <p class="kicker" data-i18n="dlKicker">免费下载</p>
+          <h2 data-i18n="dlTitle">拿起画笔，画一只。</h2>
+          <p data-i18n="dlLead">在 Google Play 与 App Store 免费获取《卡通绘画》。iOS 13+ / Android 5.0+，打开就画，作品只存在本机。</p>
+          <div class="dl-actions">
+            <a class="btn btn-gold play-btn" href="https://play.google.com/store/apps/details?id=com.oneusop.painting1" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.6v18.8c0 .5.5.8.9.5l14.6-9.4c.4-.3.4-.8 0-1L4.9 2.1c-.4-.3-.9 0-.9.5Z" fill="currentColor"/></svg>
+              <span data-i18n="playCta">在 Google Play 获取</span>
+            </a>
+            <a class="btn btn-ghost" href="https://apps.apple.com/app/id6462798026" target="_blank" rel="noopener" data-i18n="appStoreCta">在 App Store 获取</a>
+            <a class="btn btn-ghost" href="privacy.html" data-i18n="privacyLink">隐私政策</a>
+          </div>
+          <p class="dl-meta">
+            <span data-i18n="dlMeta">包名 com.oneusop.painting1 · 联系</span>
+            <a href="mailto:oneusop@163.com">oneusop@163.com</a>
+          </p>
+        </div>
+        <div class="dl-art">
+          <img src="assets/cartoon/icon.png" alt="卡通绘画应用图标" width="168" height="168" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <img src="assets/cartoon/icon.png" alt="" width="38" height="38" loading="lazy">
+          <strong data-i18n="brand">卡通绘画</strong>
+        </div>
+        <p class="footer-tagline" data-i18n="footerTagline">释放你的创造力。</p>
+      </div>
+      <nav class="footer-links" aria-label="页脚导航">
+        <a href="#features" data-i18n="navFeatures">玩法特性</a>
+        <a href="#templates" data-i18n="navTemplates">线稿图鉴</a>
+        <a href="#shots" data-i18n="navShots">界面</a>
+        <a href="privacy.html" data-i18n="privacyLink">隐私政策</a>
+        <a href="mailto:oneusop@163.com" data-i18n="contact">联系我们</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Cartoon Drawing · <span data-i18n="madeBy">由 oneusop 出品</span></span>
+      <span data-i18n="footerNote">描摹与涂鸦应用 · 作品仅保存在本机</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js" defer></script>
+</body>
+</html>
