@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>蓝色记账 · Blue Ledger — 简洁好用的个人记账应用</title>
+<meta name="description" content="蓝色记账：本地存储的个人记账应用。记一笔、分类管理、月度统计、账单搜索；Pro 一次买断解锁预算、储蓄目标、多账本等 32+ 权益。">
+<meta name="keywords" content="记账,个人记账,账本,预算,储蓄,记账应用,bookkeeping,expense tracker,budget">
+<meta name="author" content="oneusop">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0e1626">
+<meta name="application-name" content="Blue Ledger">
+<link rel="canonical" href="https://nonloop.github.io/my-android-apps-website/blue-jizhang/">
+<link rel="alternate" hreflang="zh-Hans" href="https://nonloop.github.io/my-android-apps-website/blue-jizhang/">
+<link rel="alternate" hreflang="zh-Hant" href="https://nonloop.github.io/my-android-apps-website/blue-jizhang/?lang=zh-Hant">
+<link rel="alternate" hreflang="en" href="https://nonloop.github.io/my-android-apps-website/blue-jizhang/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://nonloop.github.io/my-android-apps-website/blue-jizhang/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="蓝色记账 Blue Ledger">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="zh_TW">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:url" content="https://nonloop.github.io/my-android-apps-website/blue-jizhang/">
+<meta property="og:title" content="蓝色记账 · Blue Ledger">
+<meta property="og:description" content="简洁好用的个人记账应用。数据只存在本机，Pro 一次买断解锁 32+ 权益。">
+<meta property="og:image" content="https://nonloop.github.io/my-android-apps-website/blue-jizhang/assets/jizhang/icon.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="蓝色记账 · Blue Ledger">
+<meta name="twitter:description" content="Simple local-first bookkeeping. Pro unlocks 32+ features with a one-time purchase.">
+<meta name="twitter:image" content="https://nonloop.github.io/my-android-apps-website/blue-jizhang/assets/jizhang/icon.png">
+
+<link rel="icon" type="image/png" href="assets/jizhang/icon.png">
+<link rel="apple-touch-icon" href="assets/jizhang/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>
+  (function () {
+    var root = document.documentElement;
+    root.classList.add('js');
+    function norm(code) {
+      if (!code) return null;
+      code = String(code).toLowerCase();
+      if (code === 'en') return 'en';
+      if (code === 'zh' || code === 'zh-hans' || code === 'zh-cn') return 'zh';
+      if (code === 'zh-hant' || code === 'zh-tw' || code === 'zh-hk' || code === 'zh-mo') return 'zh-Hant';
+      return null;
+    }
+    var saved = null;
+    try { saved = localStorage.getItem('bluejizhang_lang'); } catch (e) {}
+    var lang = norm(saved);
+    var q = null;
+    try { q = new URLSearchParams(location.search).get('lang'); } catch (e) {}
+    var qn = norm(q);
+    if (qn) lang = qn;
+    if (!lang) {
+      var nav = (navigator.language || 'zh').toLowerCase();
+      if (nav.indexOf('en') === 0) lang = 'en';
+      else if (/zh-(hant|tw|hk|mo)/.test(nav)) lang = 'zh-Hant';
+      else lang = 'zh';
+    }
+    root.setAttribute('lang', lang === 'en' ? 'en' : lang === 'zh-Hant' ? 'zh-Hant' : 'zh-Hans');
+  })();
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main" data-i18n="skip">跳到主要内容</a>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="Blue Ledger">
+      <img class="brand-icon" src="assets/jizhang/icon.png" alt="蓝色记账图标" width="40" height="40">
+      <span class="brand-text">
+        <strong data-i18n="brand">蓝色记账</strong>
+        <small data-i18n="brandSub">BLUE LEDGER</small>
+      </span>
+    </a>
+    <nav class="nav" id="nav" aria-label="主导航">
+      <a href="#features" data-i18n="navFeatures">功能</a>
+      <a href="#pro" data-i18n="navPro">Pro</a>
+      <a href="#download" data-i18n="navDownload">获取应用</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang" role="group" aria-label="Language / 语言">
+        <button type="button" data-set-lang="zh" class="is-on">中</button>
+        <button type="button" data-set-lang="zh-Hant">繁</button>
+        <button type="button" data-set-lang="en">EN</button>
+      </div>
+      <a class="btn btn-gold btn-sm" href="https://apps.apple.com/app/id6670405728" target="_blank" rel="noopener" data-i18n="getApp">获取应用</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav" aria-label="打开菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <span class="grid"></span>
+      <span class="glow g1"></span>
+      <span class="glow g2"></span>
+      <span class="glyph">记</span>
+    </div>
+
+    <div class="wrap">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="seal">记</span><span data-i18n="heroEyebrow">本地记账 · 数据由你掌控</span></p>
+          <h1 class="hero-title">
+            <span data-i18n="heroTitle">蓝色记账</span>
+            <em data-i18n="heroTitleSub">BLUE LEDGER</em>
+          </h1>
+          <p class="hero-lead" data-i18n="heroLead">简洁好用的个人记账应用：记一笔、分类管理、月度统计、账单搜索。数据只存在本机，打开就记。</p>
+          <ul class="hero-tags">
+            <li data-i18n="tagLocal">本地存储</li>
+            <li data-i18n="tagLangs">三语界面</li>
+            <li data-i18n="tagPro">Pro 一次买断</li>
+            <li data-i18n="tagFree">免费下载</li>
+          </ul>
+          <div class="hero-cta">
+            <a class="btn btn-gold" href="https://apps.apple.com/app/id6670405728" target="_blank" rel="noopener" data-i18n="appStoreCta">在 App Store 获取</a>
+            <a class="btn btn-ghost" href="https://play.google.com/store/apps/details?id=com.luohuidan.jizhang" target="_blank" rel="noopener" data-i18n="playCta">在 Google Play 获取</a>
+          </div>
+          <p class="hero-meta" data-i18n="heroMeta">iOS 13+ · Android 5.0+ · 简体 / English / 日本語</p>
+        </div>
+
+        <div class="hero-art">
+          <figure class="hero-card hc-left">
+            <img src="assets/jizhang/icon.png" alt="蓝色记账应用图标" loading="eager">
+            <figcaption><span data-i18n="heroCardA">蓝色记账</span><small data-i18n="heroCardASub">本机账本</small></figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat"><b>3</b><span data-i18n="statSteps">步记完一笔</span></div>
+        <div class="stat"><b>32+</b><span data-i18n="statPro">项 Pro 权益</span></div>
+        <div class="stat"><b>3</b><span data-i18n="statLangs">种界面语言</span></div>
+        <div class="stat"><b>0</b><span data-i18n="statCloud">云端账号</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section" id="features">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="kicker" data-i18n="featuresKicker">核心功能</p>
+        <h2 data-i18n="featuresTitle">记账这件事，越简单越好</h2>
+        <p class="section-lead" data-i18n="featuresLead">日常记账免费够用；想管理得更好，Pro 一次买断全部解锁。</p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature reveal" data-delay="0">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
+          <h3 data-i18n="f1Title">快速记一笔</h3>
+          <p data-i18n="f1Desc">金额、分类、备注，几步完成；支持收入与支出。</p>
+        </article>
+        <article class="feature reveal" data-delay="1">
+          <span class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg></span>
+          <h3 data-i18n="f2Title">分类管理</h3>
+          <p data-i18n="f2Desc">常用分类自由增删，账目一目了然。</p>
+        </article>
+        <article class="feature reveal" data-delay="2">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M4 19V10M10 19V5M16 19v-6M21 19H3"/></svg></span>
+          <h3 data-i18n="f3Title">月度统计</h3>
+          <p data-i18n="f3Desc">本月收支概览与月度统计，钱花在哪一清二楚。</p>
+        </article>
+        <article class="feature reveal" data-delay="3">
+          <span class="ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/></svg></span>
+          <h3 data-i18n="f4Title">账单搜索</h3>
+          <p data-i18n="f4Desc">按关键词与筛选条件查找历史账单，随时核对。</p>
+        </article>
+        <article class="feature reveal" data-delay="0">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg></span>
+          <h3 data-i18n="f5Title">预算与储蓄目标</h3>
+          <p data-i18n="f5Desc">设定月度预算和储蓄目标，进度实时提醒（Pro）。</p>
+        </article>
+        <article class="feature reveal" data-delay="1">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M21 3v6h-6"/></svg></span>
+          <h3 data-i18n="f6Title">备份与导出</h3>
+          <p data-i18n="f6Desc">数据备份与导出（Pro），换机不丢账。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRO -->
+  <section class="section" id="pro">
+    <div class="wrap">
+      <div class="ads-panel reveal">
+        <div class="ads-head">
+          <div>
+            <p class="kicker" data-i18n="proKicker">Pro 高级版</p>
+            <h2 data-i18n="proTitle">一次买断，全部解锁</h2>
+            <p data-i18n="proLead">无需订阅：一次购买，永久使用，并在所有支持设备上共享。</p>
+          </div>
+          <span class="no-iap">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            <span data-i18n="noSub">无订阅 · 永久使用</span>
+          </span>
+        </div>
+
+        <div class="tier-grid">
+          <div class="tier">
+            <span class="tier-seal"><span class="tier-num">32+</span><small data-i18n="proPerks">项权益</small></span>
+            <div>
+              <b data-i18n="proTier1">完整功能</b>
+              <span data-i18n="proTier1Sub">预算、储蓄目标、记账日历、资产负债、多账本</span>
+            </div>
+          </div>
+          <div class="tier">
+            <span class="tier-seal"><span class="tier-num">0</span><small data-i18n="adCount">广告</small></span>
+            <div>
+              <b data-i18n="proTier2">无广告干扰</b>
+              <span data-i18n="proTier2Sub">购买后不再展示任何广告</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="ads-note" data-i18n="proNote">免费版包含 AdMob 插屏与激励广告（插屏仅低概率出现），看激励广告可获权益；Pro 买断后全部去除。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section class="section download" id="download">
+    <div class="wrap">
+      <div class="download-panel reveal">
+        <div class="dl-copy">
+          <p class="kicker" data-i18n="dlKicker">免费下载</p>
+          <h2 data-i18n="dlTitle">今天开始，记下第一笔。</h2>
+          <p data-i18n="dlLead">在 App Store 与 Google Play 免费获取《蓝色记账》。数据只存在本机，无需注册。</p>
+          <div class="dl-actions">
+            <a class="btn btn-gold" href="https://apps.apple.com/app/id6670405728" target="_blank" rel="noopener" data-i18n="appStoreCta">在 App Store 获取</a>
+            <a class="btn btn-ghost" href="https://play.google.com/store/apps/details?id=com.luohuidan.jizhang" target="_blank" rel="noopener" data-i18n="playCta">在 Google Play 获取</a>
+            <a class="btn btn-ghost" href="privacy.html" data-i18n="privacyLink">隐私政策</a>
+          </div>
+          <p class="dl-meta">
+            <span data-i18n="dlMeta">包名 com.luohuidan.jizhang · 联系</span>
+            <a href="mailto:newqidian2024@163.com">newqidian2024@163.com</a>
+          </p>
+        </div>
+        <div class="dl-art">
+          <img src="assets/jizhang/icon.png" alt="蓝色记账应用图标" width="168" height="168" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <img src="assets/jizhang/icon.png" alt="" width="38" height="38" loading="lazy">
+          <strong data-i18n="brand">蓝色记账</strong>
+        </div>
+        <p class="footer-tagline" data-i18n="footerTagline">简洁好用，数据由你掌控。</p>
+      </div>
+      <nav class="footer-links" aria-label="页脚导航">
+        <a href="#features" data-i18n="navFeatures">功能</a>
+        <a href="#pro" data-i18n="navPro">Pro</a>
+        <a href="privacy.html" data-i18n="privacyLink">隐私政策</a>
+        <a href="mailto:newqidian2024@163.com" data-i18n="contact">联系我们</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Blue Ledger · <span data-i18n="madeBy">由 oneusop 出品</span></span>
+      <span data-i18n="footerNote">个人记账应用 · 数据仅保存在本机</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js" defer></script>
+</body>
+</html>
