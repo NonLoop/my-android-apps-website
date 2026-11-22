@@ -63,7 +63,7 @@
       fFreeDesc: '不用注册，没有付费内购；免费下载，打开就画。',
 
       tplKicker: '线稿图鉴',
-      tplTitle: '29 只卡通动物，等你来画',
+      tplTitle: '卡通动物线稿，先睹为快',
       tplLead: '线稿分成陆地与海洋两类，浓淡可调，还能收藏。下面是图鉴中的几位。',
       tplCardName: '卡通动物',
       tplCardRole: '线稿',
@@ -165,7 +165,7 @@
       fFreeTitle: '無帳號無內購',
       fFreeDesc: '不用註冊，沒有付費內購；免費下載，打開就畫。',
       tplKicker: '線稿圖鑑',
-      tplTitle: '29 隻卡通動物，等你來畫',
+      tplTitle: '卡通動物線稿，先睹為快',
       tplLead: '線稿分成陸地與海洋兩類，濃淡可調，還能收藏。下面是圖鑑中的幾位。',
       tplCardName: '卡通動物',
       tplCardRole: '線稿',
@@ -268,7 +268,7 @@
       fFreeDesc: 'No sign-up, no paid in-app purchases. Free to download — open it and draw.',
 
       tplKicker: 'Template gallery',
-      tplTitle: '29 cartoon animals, waiting for you',
+      tplTitle: 'Meet a few cartoon friends',
       tplLead: 'Outlines are grouped into land and ocean, with adjustable strength and favorites. Meet a few of them.',
       tplCardName: 'Cartoon animal',
       tplCardRole: 'Outline',
