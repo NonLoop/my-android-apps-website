@@ -56,7 +56,7 @@ window.SiteApp = (function () {
       current = SUPPORTED.indexOf(lang) >= 0 ? lang : 'zh';
       root.setAttribute('lang', LANG_ATTR[current]);
 
-      var dict = I18N[current];
+      var dict = I18N[current] || I18N.zh || {};
       document.querySelectorAll('[data-i18n]').forEach(function (el) {
         var key = el.getAttribute('data-i18n');
         if (dict[key] != null) el.textContent = dict[key];

@@ -28,3 +28,56 @@
   --c-panel-3-rgb: 48, 40, 68;
   --serif: "Baloo 2", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
 }
+/* 界面一览只有 3 张截图：桌面与平板统一 3 列，避免右侧空出一格 */
+@media (min-width: 721px) {
+  .shots .shot-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 线稿走马灯：3 张卡片正好铺满容器，循环时不再露出空白 */
+.marquee-wrap {
+  max-width: 885px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-card-item {
+  width: 275px;
+}
+
+/* 截图为 9:16，按真实比例展示，避免两侧界面被裁掉 */
+.phone img,
+.shot img {
+  aspect-ratio: 1080 / 1920;
+}
+
+/* 随截图比例收紧 hero 视觉区域高度，去掉底部空白 */
+.hero-art {
+  height: 552px;
+}
+
+@media (max-width: 1120px) {
+  .hero-art {
+    height: 528px;
+  }
+}
+
+@media (max-width: 960px) {
+  .hero-art {
+    height: 500px;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero-art {
+    height: 460px;
+  }
+}
+
+/* 只有 2 个免广告档位 → 2 列，避免第三列空着 */
+@media (min-width: 961px) {
+  #ads .tier-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

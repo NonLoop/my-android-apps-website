@@ -28,3 +28,20 @@
   --c-panel-3-rgb: 30, 45, 41;
   --serif: "Noto Serif SC", "Songti SC", "STSong", "Noto Serif CJK SC", serif;
 }
+/* 界面一览只有 3 张截图：桌面与平板统一 3 列，避免右侧空出一格 */
+@media (min-width: 721px) {
+  .shots .shot-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 武将走马灯：让一组卡片正好铺满容器，循环时不再露出空白 */
+.marquee-wrap {
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-card-item {
+  width: 275px;
+}

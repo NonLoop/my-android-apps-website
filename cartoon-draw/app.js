@@ -114,7 +114,7 @@
       privacyMeta: '生效日期：2026 年 11 月 22 日｜适用应用：卡通绘画（iOS / Android，包名 com.oneusop.painting1）',
       backHome: '返回官网'
     },
-    zhHant: {
+    'zh-Hant': {
       skip: '跳到主要內容',
       brand: '卡通繪畫',
       brandSub: 'CARTOON DRAWING',

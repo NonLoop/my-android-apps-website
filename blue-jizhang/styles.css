@@ -28,3 +28,61 @@
   --c-panel-3-rgb: 28, 44, 76;
   --serif: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
 }
+/* Hero 只有一张图标卡片：居中展示，不再留在高画框的空白里 */
+.hero-inner {
+  min-height: 0;
+}
+
+.hero-art {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  min-height: 440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-card.hc-left {
+  position: relative;
+  left: auto;
+  top: auto;
+  width: 320px;
+  max-width: 80%;
+  transform: none;
+}
+
+.hero-card.hc-left img {
+  aspect-ratio: 1 / 1;
+}
+
+.hero-card.hc-left figcaption {
+  position: static;
+  padding: 12px 10px 8px;
+  text-align: center;
+  background: none;
+}
+
+/* 6 个功能 → 3 列；2 个 Pro 档位 → 2 列，避免空格 */
+@media (min-width: 1121px) {
+  .feature-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 961px) {
+  #pro .tier-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-card.hc-left {
+    display: block;
+  }
+
+  .hero-art {
+    min-height: 380px;
+  }
+}

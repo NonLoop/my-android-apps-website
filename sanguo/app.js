@@ -3,6 +3,19 @@
 (function () {
   'use strict';
 
+  var HANT_NAMES = {
+    '刘备': '劉備',
+    '曹操': '曹操',
+    '关羽': '關羽',
+    '诸葛亮': '諸葛亮',
+    '蜀': '蜀',
+    '魏': '魏',
+    '吴': '吳',
+    '群': '群',
+    '凉': '涼',
+    '黄': '黃',
+  };
+
   var I18N = {
     zh: {
       skip: '跳到主要内容',
@@ -136,7 +149,7 @@
       privacyMeta: '生效日期：2026 年 11 月 14 日｜适用应用：三国象棋（Android，包名 com.oneusop.sanguo）',
       backHome: '返回官网'
     },
-    zhHant: {
+    'zh-Hant': {
       skip: '跳到主要內容',
       brand: '三國象棋',
       brandSub: 'SANGUO XIANGQI',
