@@ -34,7 +34,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -993,12 +993,7 @@ button {
   display: flex;
   width: max-content;
   margin-top: 26px;
-  animation: marquee 78s linear infinite;
-}
 
-.marquee.reverse {
-  animation-direction: reverse;
-  animation-duration: 88s;
 }
 
 .marquee-wrap {
@@ -1009,23 +1004,10 @@ button {
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
 }
 
-.marquee-wrap:hover .marquee {
-  animation-play-state: paused;
-}
-
 .marquee-group {
   display: flex;
   gap: 20px;
   padding-right: 20px;
-}
-
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
 }
 
 .hero-card-item {
@@ -1518,27 +1500,10 @@ button {
 
 /* -------------------------------- reveal --------------------------------- */
 
-.js .reveal {
-  opacity: 0;
-  transform: translateY(26px);
-  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
-}
-
-.js .reveal.is-in {
+/* 已移除滚动浮现动画：内容始终直接可见 */
+.reveal {
   opacity: 1;
   transform: none;
-}
-
-.js .reveal[data-delay="1"] {
-  transition-delay: 0.08s;
-}
-
-.js .reveal[data-delay="2"] {
-  transition-delay: 0.16s;
-}
-
-.js .reveal[data-delay="3"] {
-  transition-delay: 0.24s;
 }
 
 /* ------------------------------- privacy --------------------------------- */
@@ -1964,21 +1929,25 @@ html[lang="en"] .hero-card figcaption small {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+/* 全站关闭动画与过渡：页面只保留静态展示 */
+*,
+*::before,
+*::after {
+  animation: none !important;
+  transition: none !important;
+}
 
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-  }
+html {
+  scroll-behavior: auto;
+}
 
-  .js .reveal {
-    opacity: 1;
-    transform: none;
-  }
+/* hover 只保留颜色与边框变化，不再位移或缩放 */
+.btn:hover,
+.btn-gold:hover,
+.btn-ghost:hover,
+.feature:hover,
+.faction-card:hover,
+.faction-card:hover::after,
+.shot:hover .shot-frame {
+  transform: none;
 }
