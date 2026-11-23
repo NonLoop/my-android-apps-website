@@ -45,3 +45,49 @@
 .hero-card-item {
   width: 275px;
 }
+/* 收紧模块之间的垂直留白 */
+@media (min-width: 961px) {
+  .hero {
+    padding-top: 132px;
+    padding-bottom: 36px;
+  }
+
+  .section {
+    padding: 64px 0;
+  }
+
+  .section-head {
+    margin-bottom: 36px;
+  }
+
+  .download {
+    padding-bottom: 72px;
+  }
+
+  .heroes {
+    padding-bottom: 52px;
+  }
+}
+
+@media (max-width: 960px) {
+  .section {
+    padding: 56px 0;
+  }
+
+  .section-head {
+    margin-bottom: 30px;
+  }
+
+  .download {
+    padding-bottom: 56px;
+  }
+
+  .heroes {
+    padding-bottom: 44px;
+  }
+}
+
+.hero-stats {
+  margin-top: 22px;
+  padding-top: 22px;
+}
