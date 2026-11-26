@@ -139,9 +139,7 @@
       dlTitle: '坐下来，落一子。',
       dlLead: '在 Google Play 免费获取《三国象棋》。Android 7.0 及以上，离线可玩，一局十分钟。',
       privacyLink: '隐私政策',
-      dlMeta: '包名 com.oneusop.sanguo · 联系',
       footerTagline: '一方棋局，天下谋略。',
-      contact: '联系我们',
       madeBy: '由 oneusop 出品',
       footerNote: '非官方三国题材同人作品 · 棋规遵循中国象棋协会通行规则',
 
@@ -286,9 +284,7 @@
       dlTitle: '坐下來，落一子。',
       dlLead: '在 Google Play 免費獲取《三國象棋》。Android 7.0 及以上，離線可玩，一局十分鐘。',
       privacyLink: '隱私政策',
-      dlMeta: '包名 com.oneusop.sanguo · 聯絡',
       footerTagline: '一方棋局，天下謀略。',
-      contact: '聯絡我們',
       madeBy: '由 oneusop 出品',
       footerNote: '非官方三國題材同人作品 · 棋規遵循中國象棋協會通行規則',
       privacyTitle: '隱私政策',
@@ -423,9 +419,7 @@
       dlLead:
         'Get Sanguo Xiangqi free on Google Play. Android 7.0+, playable offline, about ten minutes a game.',
       privacyLink: 'Privacy Policy',
-      dlMeta: 'Package com.oneusop.sanguo · Contact',
       footerTagline: 'One board, a realm of strategy.',
-      contact: 'Contact',
       madeBy: 'made by oneusop',
       footerNote: 'Unofficial Three Kingdoms fan project · Rules follow standard Chinese chess',
 

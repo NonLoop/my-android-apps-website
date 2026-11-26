@@ -104,9 +104,7 @@
       dlLead:
         '在 Google Play 与 App Store 免费获取《卡通绘画》。iOS 13+ / Android 5.0+，打开就画，作品只存在本机。',
       privacyLink: '隐私政策',
-      dlMeta: '包名 com.oneusop.painting1 · 联系',
       footerTagline: '释放你的创造力。',
-      contact: '联系我们',
       madeBy: '由 oneusop 出品',
       footerNote: '描摹与涂鸦应用 · 作品仅保存在本机',
 
@@ -200,9 +198,7 @@
       dlTitle: '拿起畫筆，畫一隻。',
       dlLead: '在 Google Play 與 App Store 免費獲取《卡通繪畫》。iOS 13+ / Android 5.0+，打開就畫，作品只存在本機。',
       privacyLink: '隱私政策',
-      dlMeta: '包名 com.oneusop.painting1 · 聯絡',
       footerTagline: '釋放你的創造力。',
-      contact: '聯絡我們',
       madeBy: '由 oneusop 出品',
       footerNote: '描摹與塗鴉應用 · 作品僅儲存在本機',
       privacyTitle: '隱私政策',
@@ -309,9 +305,7 @@
       dlLead:
         'Get Cartoon Drawing free on Google Play and the App Store. iOS 13+ / Android 5.0+, ready when you are, and artwork stays on the phone.',
       privacyLink: 'Privacy Policy',
-      dlMeta: 'Package com.oneusop.painting1 · Contact',
       footerTagline: 'Free your creativity.',
-      contact: 'Contact',
       madeBy: 'made by oneusop',
       footerNote: 'Tracing & doodling app · artwork stays on the device',
 
